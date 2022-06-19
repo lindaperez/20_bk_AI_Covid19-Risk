@@ -9,4 +9,4 @@ AWS is the database we intend to use, and we will integrate Tableau to visualize
 SciKitLearn is the ML library we'll be using to create a classifier. Our training and testing setup is ___. Extra ML verbiage here.
 
 ## Dashboard
-In addition to using a Tableau dashboards template, we will also integrate D3.js for a fully functioning and interactive dashboard.
+In addition to using a Tableau dashboards template, we will also integrate D3.js for a fully functioning and interactive dashboard with a questionnaire attached.
