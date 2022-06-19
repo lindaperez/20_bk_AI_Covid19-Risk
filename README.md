@@ -18,3 +18,11 @@ It would be helpful to figure out the potential factors that are attributed to t
 * How COVID-19 affected people based on age, gender and race in Mexico?
 * How significant are the medical conditions classification of high and low risk patients for death/hospitalization and can it be predicted using ML?
 * Can we classify high and low risk patients based on their existing medical conditions and deploy the model using a questionnaire?
+
+## Communication protocol
+
+* [**Slack channel**](https://ucbvirtdatapt-7gv5710.slack.com/archives/C03F73LGS1K): created to share ideas, ask for status updates, look for information and ask questions about the project.
+
+* [**Google Docs File**](https://docs.google.com/document/d/1AekYwLObWoseIEC3_ZEBXurjuoKeUfaqxWNM-TKw4bk/edit?usp=sharing): designed to share resources, datasets, links, facts and ideas.
+
+* Recurring Zoom Meetings: designed to brainstorm ideas and conclusions about the project, every Wednesday at 3 p.m **PDT** based on group availability.
