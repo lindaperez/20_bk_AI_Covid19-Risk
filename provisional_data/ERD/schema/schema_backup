@@ -1,0 +1,797 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 13.4
+-- Dumped by pg_dump version 13.5 (Debian 13.5-0+deb11u1)
+
+-- Started on 2022-06-19 10:56:14 PDT
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- TOC entry 210 (class 1259 OID 16503)
+-- Name: cat_antigen_result; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cat_antigen_result (
+    id numeric NOT NULL,
+    value text NOT NULL
+);
+
+
+ALTER TABLE public.cat_antigen_result OWNER TO postgres;
+
+--
+-- TOC entry 211 (class 1259 OID 16536)
+-- Name: cat_city; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cat_city (
+    id numeric NOT NULL,
+    key_code text,
+    id_state numeric,
+    value text NOT NULL
+);
+
+
+ALTER TABLE public.cat_city OWNER TO postgres;
+
+--
+-- TOC entry 208 (class 1259 OID 16475)
+-- Name: cat_final_class; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cat_final_class (
+    id numeric NOT NULL,
+    classification text NOT NULL,
+    description text NOT NULL
+);
+
+
+ALTER TABLE public.cat_final_class OWNER TO postgres;
+
+--
+-- TOC entry 203 (class 1259 OID 16426)
+-- Name: cat_gender; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cat_gender (
+    id numeric NOT NULL,
+    value text
+);
+
+
+ALTER TABLE public.cat_gender OWNER TO postgres;
+
+--
+-- TOC entry 207 (class 1259 OID 16458)
+-- Name: cat_lab_result; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cat_lab_result (
+    id numeric NOT NULL,
+    value text NOT NULL
+);
+
+
+ALTER TABLE public.cat_lab_result OWNER TO postgres;
+
+--
+-- TOC entry 206 (class 1259 OID 16450)
+-- Name: cat_resident; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cat_resident (
+    id numeric NOT NULL,
+    value text NOT NULL
+);
+
+
+ALTER TABLE public.cat_resident OWNER TO postgres;
+
+--
+-- TOC entry 201 (class 1259 OID 16410)
+-- Name: cat_resp_monitoring; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cat_resp_monitoring (
+    id numeric NOT NULL,
+    value text
+);
+
+
+ALTER TABLE public.cat_resp_monitoring OWNER TO postgres;
+
+--
+-- TOC entry 209 (class 1259 OID 16483)
+-- Name: cat_state; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cat_state (
+    id numeric NOT NULL,
+    federated_state text NOT NULL,
+    abbrv text NOT NULL
+);
+
+
+ALTER TABLE public.cat_state OWNER TO postgres;
+
+--
+-- TOC entry 202 (class 1259 OID 16418)
+-- Name: cat_type_institution; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cat_type_institution (
+    id numeric NOT NULL,
+    value text NOT NULL
+);
+
+
+ALTER TABLE public.cat_type_institution OWNER TO postgres;
+
+--
+-- TOC entry 204 (class 1259 OID 16434)
+-- Name: cat_type_patient; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cat_type_patient (
+    id numeric NOT NULL,
+    value text NOT NULL
+);
+
+
+ALTER TABLE public.cat_type_patient OWNER TO postgres;
+
+--
+-- TOC entry 205 (class 1259 OID 16442)
+-- Name: cat_yes_no; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cat_yes_no (
+    id numeric NOT NULL,
+    value text
+);
+
+
+ALTER TABLE public.cat_yes_no OWNER TO postgres;
+
+--
+-- TOC entry 200 (class 1259 OID 16403)
+-- Name: patient; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.patient (
+    index bigint,
+    data_file_updated text,
+    id_patient text,
+    resp_monitoring bigint,
+    type_institution bigint,
+    state_medical_unit bigint,
+    gender bigint,
+    state_patient_birth bigint,
+    state_residence bigint,
+    city_patient_birth bigint,
+    type_patient bigint,
+    date_admitted text,
+    date_patient_symp text,
+    date_patient_death text,
+    intubated bigint,
+    pneumonia bigint,
+    age bigint,
+    resident bigint,
+    pregnant bigint,
+    indigenous_lang bigint,
+    indigenous bigint,
+    diabetes bigint,
+    copd bigint,
+    asthma bigint,
+    immunosup bigint,
+    hypertension bigint,
+    another_complication bigint,
+    cardiovascular bigint,
+    obesity bigint,
+    renal_chronic bigint,
+    tobacco bigint,
+    closed_contanct bigint,
+    lab_sample bigint,
+    lab_result bigint,
+    antigen_sample bigint,
+    antigen_result bigint,
+    final_class bigint,
+    migrant bigint,
+    country_nationality text,
+    country_patient_birth text,
+    icu bigint
+);
+
+
+ALTER TABLE public.patient OWNER TO postgres;
+
+--
+-- TOC entry 216 (class 1259 OID 16672)
+-- Name: stat_confirmed_state; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.stat_confirmed_state (
+    id numeric NOT NULL,
+    date text,
+    id_state numeric,
+    total numeric
+);
+
+
+ALTER TABLE public.stat_confirmed_state OWNER TO postgres;
+
+--
+-- TOC entry 214 (class 1259 OID 16656)
+-- Name: stat_coordinate; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.stat_coordinate (
+    id numeric NOT NULL,
+    state text,
+    lat numeric,
+    long numeric
+);
+
+
+ALTER TABLE public.stat_coordinate OWNER TO postgres;
+
+--
+-- TOC entry 212 (class 1259 OID 16624)
+-- Name: stat_death_state; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.stat_death_state (
+    id numeric NOT NULL,
+    id_state numeric,
+    date text,
+    total numeric
+);
+
+
+ALTER TABLE public.stat_death_state OWNER TO postgres;
+
+--
+-- TOC entry 215 (class 1259 OID 16664)
+-- Name: stat_population; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.stat_population (
+    id_state numeric NOT NULL,
+    population numeric
+);
+
+
+ALTER TABLE public.stat_population OWNER TO postgres;
+
+--
+-- TOC entry 213 (class 1259 OID 16648)
+-- Name: stat_state; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.stat_state (
+    id numeric NOT NULL,
+    value text
+);
+
+
+ALTER TABLE public.stat_state OWNER TO postgres;
+
+--
+-- TOC entry 3808 (class 2606 OID 16510)
+-- Name: cat_antigen_result antigen_result_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cat_antigen_result
+    ADD CONSTRAINT antigen_result_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3810 (class 2606 OID 16543)
+-- Name: cat_city city_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cat_city
+    ADD CONSTRAINT city_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3804 (class 2606 OID 16482)
+-- Name: cat_final_class final_class_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cat_final_class
+    ADD CONSTRAINT final_class_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3794 (class 2606 OID 16433)
+-- Name: cat_gender gender_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cat_gender
+    ADD CONSTRAINT gender_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3802 (class 2606 OID 16465)
+-- Name: cat_lab_result lab_result_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cat_lab_result
+    ADD CONSTRAINT lab_result_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3800 (class 2606 OID 16457)
+-- Name: cat_resident resident_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cat_resident
+    ADD CONSTRAINT resident_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3790 (class 2606 OID 16417)
+-- Name: cat_resp_monitoring resp_monitoring_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cat_resp_monitoring
+    ADD CONSTRAINT resp_monitoring_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3820 (class 2606 OID 16679)
+-- Name: stat_confirmed_state stat_confirmed_state_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.stat_confirmed_state
+    ADD CONSTRAINT stat_confirmed_state_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3816 (class 2606 OID 16663)
+-- Name: stat_coordinate stat_coordinate_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.stat_coordinate
+    ADD CONSTRAINT stat_coordinate_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3812 (class 2606 OID 16631)
+-- Name: stat_death_state stat_death_state_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.stat_death_state
+    ADD CONSTRAINT stat_death_state_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3818 (class 2606 OID 16671)
+-- Name: stat_population stat_population_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.stat_population
+    ADD CONSTRAINT stat_population_pkey PRIMARY KEY (id_state);
+
+
+--
+-- TOC entry 3814 (class 2606 OID 16655)
+-- Name: stat_state stat_state_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.stat_state
+    ADD CONSTRAINT stat_state_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3806 (class 2606 OID 16490)
+-- Name: cat_state states_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cat_state
+    ADD CONSTRAINT states_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3792 (class 2606 OID 16425)
+-- Name: cat_type_institution type_institution_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cat_type_institution
+    ADD CONSTRAINT type_institution_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3796 (class 2606 OID 16441)
+-- Name: cat_type_patient type_patient_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cat_type_patient
+    ADD CONSTRAINT type_patient_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3798 (class 2606 OID 16449)
+-- Name: cat_yes_no yes_no_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cat_yes_no
+    ADD CONSTRAINT yes_no_pkey PRIMARY KEY (id);
+
+
+--
+-- TOC entry 3788 (class 1259 OID 16409)
+-- Name: ix_patient_index; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX ix_patient_index ON public.patient USING btree (index);
+
+
+--
+-- TOC entry 3856 (class 2606 OID 16680)
+-- Name: stat_population constraint_name; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.stat_population
+    ADD CONSTRAINT constraint_name FOREIGN KEY (id_state) REFERENCES public.stat_state(id);
+
+
+--
+-- TOC entry 3855 (class 2606 OID 16685)
+-- Name: stat_death_state constraint_name; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.stat_death_state
+    ADD CONSTRAINT constraint_name FOREIGN KEY (id_state) REFERENCES public.stat_state(id);
+
+
+--
+-- TOC entry 3857 (class 2606 OID 16690)
+-- Name: stat_confirmed_state constraint_name; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.stat_confirmed_state
+    ADD CONSTRAINT constraint_name FOREIGN KEY (id_state) REFERENCES public.stat_state(id);
+
+
+--
+-- TOC entry 3832 (class 2606 OID 16695)
+-- Name: patient constraint_name; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT constraint_name FOREIGN KEY (type_patient) REFERENCES public.cat_type_patient(id);
+
+
+--
+-- TOC entry 3845 (class 2606 OID 16760)
+-- Name: patient pat_another_complication; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_another_complication FOREIGN KEY (another_complication) REFERENCES public.cat_yes_no(id);
+
+
+--
+-- TOC entry 3822 (class 2606 OID 16550)
+-- Name: patient pat_antigen_result; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_antigen_result FOREIGN KEY (antigen_result) REFERENCES public.cat_antigen_result(id);
+
+
+--
+-- TOC entry 3852 (class 2606 OID 16795)
+-- Name: patient pat_antigen_sample; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_antigen_sample FOREIGN KEY (antigen_sample) REFERENCES public.cat_yes_no(id);
+
+
+--
+-- TOC entry 3842 (class 2606 OID 16745)
+-- Name: patient pat_athma; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_athma FOREIGN KEY (asthma) REFERENCES public.cat_yes_no(id);
+
+
+--
+-- TOC entry 3846 (class 2606 OID 16765)
+-- Name: patient pat_cardiovascular; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_cardiovascular FOREIGN KEY (cardiovascular) REFERENCES public.cat_yes_no(id);
+
+
+--
+-- TOC entry 3824 (class 2606 OID 16560)
+-- Name: patient pat_city; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_city FOREIGN KEY (city_patient_birth) REFERENCES public.cat_city(id);
+
+
+--
+-- TOC entry 3850 (class 2606 OID 16785)
+-- Name: patient pat_closed_contanct; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_closed_contanct FOREIGN KEY (closed_contanct) REFERENCES public.cat_yes_no(id);
+
+
+--
+-- TOC entry 3841 (class 2606 OID 16740)
+-- Name: patient pat_copd; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_copd FOREIGN KEY (copd) REFERENCES public.cat_yes_no(id);
+
+
+--
+-- TOC entry 3840 (class 2606 OID 16735)
+-- Name: patient pat_diabetes; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_diabetes FOREIGN KEY (diabetes) REFERENCES public.cat_yes_no(id);
+
+
+--
+-- TOC entry 3825 (class 2606 OID 16565)
+-- Name: patient pat_final_class; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_final_class FOREIGN KEY (final_class) REFERENCES public.cat_final_class(id);
+
+
+--
+-- TOC entry 3826 (class 2606 OID 16570)
+-- Name: patient pat_gender; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_gender FOREIGN KEY (gender) REFERENCES public.cat_gender(id);
+
+
+--
+-- TOC entry 3844 (class 2606 OID 16755)
+-- Name: patient pat_hypertension; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_hypertension FOREIGN KEY (hypertension) REFERENCES public.cat_yes_no(id);
+
+
+--
+-- TOC entry 3854 (class 2606 OID 16805)
+-- Name: patient pat_icu; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_icu FOREIGN KEY (icu) REFERENCES public.cat_yes_no(id);
+
+
+--
+-- TOC entry 3843 (class 2606 OID 16750)
+-- Name: patient pat_immunosup; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_immunosup FOREIGN KEY (immunosup) REFERENCES public.cat_yes_no(id);
+
+
+--
+-- TOC entry 3839 (class 2606 OID 16730)
+-- Name: patient pat_indigenous; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_indigenous FOREIGN KEY (indigenous) REFERENCES public.cat_yes_no(id);
+
+
+--
+-- TOC entry 3838 (class 2606 OID 16725)
+-- Name: patient pat_indigenous_lang; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_indigenous_lang FOREIGN KEY (indigenous_lang) REFERENCES public.cat_yes_no(id);
+
+
+--
+-- TOC entry 3835 (class 2606 OID 16710)
+-- Name: patient pat_intubated; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_intubated FOREIGN KEY (intubated) REFERENCES public.cat_yes_no(id);
+
+
+--
+-- TOC entry 3827 (class 2606 OID 16575)
+-- Name: patient pat_lab_result; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_lab_result FOREIGN KEY (lab_result) REFERENCES public.cat_lab_result(id);
+
+
+--
+-- TOC entry 3851 (class 2606 OID 16790)
+-- Name: patient pat_lab_sample; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_lab_sample FOREIGN KEY (lab_sample) REFERENCES public.cat_yes_no(id);
+
+
+--
+-- TOC entry 3853 (class 2606 OID 16800)
+-- Name: patient pat_migrant; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_migrant FOREIGN KEY (migrant) REFERENCES public.cat_yes_no(id);
+
+
+--
+-- TOC entry 3847 (class 2606 OID 16770)
+-- Name: patient pat_obesity; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_obesity FOREIGN KEY (obesity) REFERENCES public.cat_yes_no(id);
+
+
+--
+-- TOC entry 3836 (class 2606 OID 16715)
+-- Name: patient pat_pneumonia; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_pneumonia FOREIGN KEY (pneumonia) REFERENCES public.cat_yes_no(id);
+
+
+--
+-- TOC entry 3837 (class 2606 OID 16720)
+-- Name: patient pat_pregnant; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_pregnant FOREIGN KEY (pregnant) REFERENCES public.cat_yes_no(id);
+
+
+--
+-- TOC entry 3848 (class 2606 OID 16775)
+-- Name: patient pat_renal_chronic; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_renal_chronic FOREIGN KEY (renal_chronic) REFERENCES public.cat_yes_no(id);
+
+
+--
+-- TOC entry 3823 (class 2606 OID 16555)
+-- Name: patient pat_resident; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_resident FOREIGN KEY (resident) REFERENCES public.cat_resident(id);
+
+
+--
+-- TOC entry 3821 (class 2606 OID 16545)
+-- Name: patient pat_resp_monitoring; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_resp_monitoring FOREIGN KEY (resp_monitoring) REFERENCES public.cat_resp_monitoring(id);
+
+
+--
+-- TOC entry 3828 (class 2606 OID 16580)
+-- Name: patient pat_state; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_state FOREIGN KEY (state_patient_birth) REFERENCES public.cat_state(id);
+
+
+--
+-- TOC entry 3829 (class 2606 OID 16585)
+-- Name: patient pat_state_med_unit; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_state_med_unit FOREIGN KEY (state_medical_unit) REFERENCES public.cat_state(id);
+
+
+--
+-- TOC entry 3830 (class 2606 OID 16590)
+-- Name: patient pat_state_patient_birth; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_state_patient_birth FOREIGN KEY (state_patient_birth) REFERENCES public.cat_state(id);
+
+
+--
+-- TOC entry 3831 (class 2606 OID 16595)
+-- Name: patient pat_state_residence; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_state_residence FOREIGN KEY (state_residence) REFERENCES public.cat_state(id);
+
+
+--
+-- TOC entry 3849 (class 2606 OID 16780)
+-- Name: patient pat_tobacco; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_tobacco FOREIGN KEY (tobacco) REFERENCES public.cat_yes_no(id);
+
+
+--
+-- TOC entry 3834 (class 2606 OID 16705)
+-- Name: patient pat_type_institution; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_type_institution FOREIGN KEY (type_institution) REFERENCES public.cat_type_institution(id);
+
+
+--
+-- TOC entry 3833 (class 2606 OID 16700)
+-- Name: patient pat_type_patient; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.patient
+    ADD CONSTRAINT pat_type_patient FOREIGN KEY (type_patient) REFERENCES public.cat_type_patient(id);
+
+
+--
+-- TOC entry 3993 (class 0 OID 0)
+-- Dependencies: 3
+-- Name: SCHEMA public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM rdsadmin;
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2022-06-19 10:56:16 PDT
+
+--
+-- PostgreSQL database dump complete
+--
+
