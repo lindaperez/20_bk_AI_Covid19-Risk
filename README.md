@@ -1,4 +1,4 @@
-# bk-covid19
+# Project COVID-19
 Exploratory and predictive analysis over Covid-19 in Mexico
 
 ## Overview
@@ -19,6 +19,11 @@ To develop a machine learning model in Python to analyze what has been its impac
 * How COVID-19 affected people based on age, gender and race in Mexico?
 * How significant are the medical conditions classification of high and low risk patients for death/hospitalization and can it be predicted using ML?
 * Can we classify high and low risk patients based on their existing medical conditions and deploy the model using a questionnaire?
+
+## Dataset to use:
+* Mexico Confirmed Case_Death <https://cdmx.dash.covid19.geoint.mx/#DownZCSV>
+* Mexico Vaccination Data <https://github.com/owid/covid-19-data/tree/master/public/data/vaccinations>
+* Mexico Demographic Data <https://datosabiertos.salud.gob.mx/gobmx/salud/datos_abiertos/datos_abiertos_covid19.zip>
 
 ## Communication protocol
 
