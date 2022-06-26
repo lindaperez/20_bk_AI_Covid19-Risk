@@ -9,7 +9,7 @@ We are trying to compare the balanced accuracy score and false negative cases in
     - Gradient Boosting Classifier
     - Easy Ensemble Classifier
     - Deep Learning
-and try to figure out the optimal combination to indicate the high risk to the potential patients effectively.
+<br> and try to figure out the optimal combination to indicate the high risk to the potential patients effectively.
 
 ## Feature Importance Overview
 By using Gradient Boosting Classifier, we can get following feature importance overview of each combination.
