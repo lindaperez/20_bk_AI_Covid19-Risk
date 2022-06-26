@@ -13,7 +13,7 @@ and try to figure out the optimal combination to indicate the high risk to the p
 
 ## Feature Importance Overview
 By using Gradient Boosting Classifier, we can get following feature importance overview of each combination.
-<br>Left: Old data; Right: New data including 'closed_contact' and 'another_complication'
+<br>New data including 'closed_contact' and 'another_complication'
 
 ### 'Death' as Target 
 - SMOTEENN
