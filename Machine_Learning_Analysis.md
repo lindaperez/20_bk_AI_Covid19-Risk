@@ -31,15 +31,15 @@ Given the purpose of the analysis, we found the COVID patient data for the machi
     - Old_age_Adults(49-64) : 4
     - Senior_Adults(65-90) : 5
 * We also analyzed the ['age'] column and get the 1st Quartile,median, and 3rd Quartile. Based on the definition of Outlier, age above 91 is considered outlier. We further dropped the outliers.
-- Rest of the columns are showing the categorical integer. We further regroup the category ['Unknown'] or ['N/A'] to ['NO'], so that each medical conditions or features have clean input - Yes and No. 
+- Rest of the columns are showing the categorical integer. We further regroup the category ['Unknown'] or ['N/A'] to ['No'], so that each medical conditions or features have clean input - Yes and No. 
 
 ## Preliminary Feature Engineering and Feature Selection
 After the data preprocessing, we are having an all-integer full datasets, with each input as categorical numeric. We are clear that ['Death'] is going to be the target. We would like to decide on the features that will be used to fit into the model. 
 
-### Statistical Analysis for Underlying Medical Condition using R Language 
+### Statistical Analysis for Underlying Medical Conditions using R Language 
 As both the target and potential features are categorical numeric, we are using Chi-squared test and logistic Regression in R to validate if the underlying medical conditions are significant relevant to the target ['Death']. The result shows almost all the medical conditions, as well as age(Adults and senior people) are significant relative to the target ['Death'] based on the clean patient data(P value is smaller than 0.05), except the condition - ['pregnant'] and ['cardiovascular']. The result as follows:
 ![Statistical_Analysis_in_R](./Image/Statistical_Analysis_in_R.png)
-So preliminarily, the features are relevant to the target. Even though ['pregnant'] and ['cardiovascular'] didn't appear significant to the target ['Death'], we are still going to proceed with them as they would be valuable info for the doctors to prepare further diagnosis and treatment.
+<br> So preliminarily, the features are relevant to the target. Even though ['pregnant'] and ['cardiovascular'] didn't appear significant to the target ['Death'], we are still going to proceed with them as they would be valuable info for the doctors to prepare further diagnosis and treatment.
 
 ## Machine Learning Analysis
 After data preprocessing and preliminary feature engineering, we are ready to fit the data into the machine learning models. 
