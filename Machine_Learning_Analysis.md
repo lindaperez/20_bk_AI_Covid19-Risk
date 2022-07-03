@@ -16,7 +16,7 @@ Given the purpose of the analysis, we found the COVID patient data for the machi
 <Br>As the end goal is to create a Machine Learning model and make predications of high/low risk groups of COVID, we are going to focus on the data: 
 
 - Whose COVID results were positive
-- Whose columns show the medical underlying conditions, age, gender that may be significant relevant to the result 'Death'
+- Whose columns show the medical underlying conditions, age, gender that may be significantly relevant to the result 'Death'
 - Other info which may help with the prediction, such as ['closed_contact'] and ['other_complication'].
 
 <Br>After the initial preprocesing, We dropped couple irrelevant and duplicate info columns and advance into the second stage of the preprocessing -- <strong>regroup and data cleaning</strong>.
@@ -37,7 +37,7 @@ Given the purpose of the analysis, we found the COVID patient data for the machi
 After the data preprocessing, we are having an all-integer full datasets, with each input as categorical numeric. We are clear that ['Death'] is going to be the target. We would like to decide on the features that will be used to fit into the model. 
 
 ### Statistical Analysis for Underlying Medical Conditions using R Language 
-As both the target and potential features are categorical numeric, we are using Chi-squared test and logistic Regression in R to validate if the underlying medical conditions are significant relevant to the target ['Death']. The result shows almost all the medical conditions, as well as age(Adults and senior people) are significantly relative to the target ['Death'] based on the clean patient data(P value is smaller than 0.05), except the condition - ['pregnant'] and ['cardiovascular']. The result as follows:
+As both the target and potential features are categorical numeric, we are using Chi-squared test and logistic Regression in R to validate if the underlying medical conditions are significantly relevant to the target ['Death']. The result shows almost all the medical conditions, as well as age(Adults and senior people) are significantly relative to the target ['Death'] based on the clean patient data(P value is smaller than 0.05), except the condition - ['pregnant'] and ['cardiovascular']. The result as follows:
 ![Statistical_Analysis_in_R](./Image/Statistical_Analysis_in_R.png)
 <br> So preliminarily, the features are relevant to the target. Even though ['pregnant'] and ['cardiovascular'] didn't appear significant to the target ['Death'], we are still going to proceed with them as they would be valuable info for the doctors to prepare further diagnosis and treatment.
 
@@ -73,15 +73,21 @@ Based on the listed models above, we did 2 different kinds of cross validation -
 Furthermore, we used StratifiedKFold(n_splits = 5) across all 7 models with both SMOTE and Undersampling techniques, calculating accuracy score, balanced accuracy score, precision, recall and F1. (Using sample data with 50,000 rows)
 
 <br>Here's the result of StratifiedKFold CV with SMOTE:
+
 ![StratifiedKFold_SMOTE](./Image/StratifiedKFold_SMOTE.png)
+
 <br>Here's the result of StratifiedKFold CV with Undersampling:
+
 ![StratifiedKFold_Undersampling](./Image/StratifiedKFold_Undersampling.png)
 
 <br> As we split the sample dataset with 75% training data and 25% test data. We evaluated the model prediction using the test data and calculated the same metrics. 
 
 <br>Here's the result of test data validation with SMOTE:
+
 ![Test_Data_Validation_SMOTE](./Image/Test_Data_Validation_SMOTE.png)
+
 <br>Here's the result of test data validation with Undersampling:
+
 ![Test_Data_Validation_Undersampling](./Image/Test_Data_Validation_Undersampling.png)
 
 <br> From the result and analysis above, We can tell Balanced Random Forest, Gradient Boosting and Random forest has the best recall score and decent balanced accuracy score. 
@@ -89,9 +95,13 @@ Furthermore, we used StratifiedKFold(n_splits = 5) across all 7 models with both
 ### Other experiments
 <br> We also looked into the deep learning, and built the model with 2 hidden layers, and relu activation function. Comparing SMOTE and Undersampling techniques, we tested 50,000 rows of sample data and calculated accuracy score, TruePostivies, FalseNegatives and Recall. 
 <br> Here's the result with SMOTE:
+
 ![DL_SMOTE](./Image/DL_SMOTE.png)
+
 <br> Here's the result with Undersampling:
-![DL_Undersampling](./Image/Undersampling.png)
+
+![DL_Undersampling](./Image/DL_Undersampling.png)
+
 <br> The result stays similar as the rest of the models.
 
 ### Conclusion
@@ -100,8 +110,13 @@ After cross validation and test data validation on the Machine Learning and Deep
 <br> Considering the computational and process efficiency, along with the Recall score and balanced accuracy score of the models, we decided to use the Balanced Random Forest, which naturally integrates with the Undersampling process, as our prediction model.
 
 * Full dataset validation
-<br> Finally, we ran the full datasets(more than 1.4millions rows of data) into the Balanced Random Forest Classifier, and got the 88% of recall and 86.59337% of the balanced accuracy score within 2 mins.
-![Final_stats](./Image/Final_stats.png)
+<br> Finally, we ran the full datasets(more than 1.4millions rows of data) into the Balanced Random Forest Classifier, and got the <strong>88% of recall and 86.57% of the balanced accuracy score within 2 mins</strong>.
+
+* Feature importances
+The feature importance from the Balanced Random Forest Classifier shows below, which aligns with our statistical analysis using R in preliminary feature engineering.
+![brfc_feature_importances](./Image/brfc_feature_importances.png)
+
+
 
 
 
