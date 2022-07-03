@@ -37,7 +37,7 @@ Given the purpose of the analysis, we found the COVID patient data for the machi
 After the data preprocessing, we are having an all-integer full datasets, with each input as categorical numeric. We are clear that ['Death'] is going to be the target. We would like to decide on the features that will be used to fit into the model. 
 
 ### Statistical Analysis for Underlying Medical Conditions using R Language 
-As both the target and potential features are categorical numeric, we are using Chi-squared test and logistic Regression in R to validate if the underlying medical conditions are significant relevant to the target ['Death']. The result shows almost all the medical conditions, as well as age(Adults and senior people) are significant relative to the target ['Death'] based on the clean patient data(P value is smaller than 0.05), except the condition - ['pregnant'] and ['cardiovascular']. The result as follows:
+As both the target and potential features are categorical numeric, we are using Chi-squared test and logistic Regression in R to validate if the underlying medical conditions are significant relevant to the target ['Death']. The result shows almost all the medical conditions, as well as age(Adults and senior people) are significantly relative to the target ['Death'] based on the clean patient data(P value is smaller than 0.05), except the condition - ['pregnant'] and ['cardiovascular']. The result as follows:
 ![Statistical_Analysis_in_R](./Image/Statistical_Analysis_in_R.png)
 <br> So preliminarily, the features are relevant to the target. Even though ['pregnant'] and ['cardiovascular'] didn't appear significant to the target ['Death'], we are still going to proceed with them as they would be valuable info for the doctors to prepare further diagnosis and treatment.
 
@@ -50,7 +50,7 @@ After data preprocessing and preliminary feature engineering, we are ready to fi
 
 - Targets: ['DEATH']
 - Features: ['gender','pneumonia', 'new_age','pregnant', 'diabetes', 'copd','asthma', 'immunosup', 'hypertension','cardiovascular', 'obesity', 'renal_chronic', 'tobacco', 'another_complication','closed_contact']
-- Resampling techniques: SMOTE vs SMOTEENN
+- Resampling: SMOTE, SMOTEENN, Undersampling
 - Machine Learning models: 
     - Logistic Regression Classifier
     - Support Vector Machines (SVM)
@@ -59,7 +59,51 @@ After data preprocessing and preliminary feature engineering, we are ready to fi
     - Random Forest Classifier
     - Balanced Random Forest Classifier
     - Easy Ensemble Classifier
-    - Deep Learning
+
+### Initial Cross Validation and Metrics 
+Based on the listed models above, we did 2 different kinds of cross validation - <strong>K fold and StratifiedKFold</strong> using a sample of the full datasets(at least 30,000 rows of data).
+<br> Given the use case of the project, we are hoping to screening the people, who are potentially infected with COVID and have these medical conditions. We would rather be more agreesive in classfying patients rather than miss any potential high risk patient. So <strong>recall</strong> of high risk class is the metrics we are focusing on.  
+<br> To address the imbalanced distribution of the '1' class, we evaluated the models with different <strong>resampling techniques</strong>: SMOTE, SMOTEENN, Undersampling, as well as with standard scaling and without. 
+<br> Here's an overview of the K-fold(n_splits=10) cross validation results showing the <strong>recall</strong> of different models(Using sample data with 30,000 rows): 
+![CV_Resampling_Comparison](./Image/CV_Resampling_Comparison.png)
+<br> As we can see, both SMOTE and Undersampling performed well across all models. Undersampling tends to have more standard errors in the performance during k-fold cross validation. With SMOTE, more time was spent on running the models.
+<br> One thing that worths mentioning is that the Easy Ensemble Classifier and Balanced Random Forest Classifier performances stay consistent across different resampling techniques due to natural integration of Undersampling techniques. 
+
+### Further Validation using StratifiedKFold and Test Datasets
+Furthermore, we used StratifiedKFold(n_splits = 5) across all 7 models with both SMOTE and Undersampling techniques, calculating accuracy score, balanced accuracy score, precision, recall and F1. (Using sample data with 50,000 rows)
+
+<br>Here's the result of StratifiedKFold CV with SMOTE:
+![StratifiedKFold_SMOTE](./Image/StratifiedKFold_SMOTE.png)
+<br>Here's the result of StratifiedKFold CV with Undersampling:
+![StratifiedKFold_Undersampling](./Image/StratifiedKFold_Undersampling.png)
+
+<br> As we split the sample dataset with 75% training data and 25% test data. We evaluated the model prediction using the test data and calculated the same metrics. 
+
+<br>Here's the result of test data validation with SMOTE:
+![Test_Data_Validation_SMOTE](./Image/Test_Data_Validation_SMOTE.png)
+<br>Here's the result of test data validation with Undersampling:
+![Test_Data_Validation_Undersampling](./Image/Test_Data_Validation_Undersampling.png)
+
+<br> From the result and analysis above, We can tell Balanced Random Forest, Gradient Boosting and Random forest has the best recall score and decent balanced accuracy score. 
+
+### Other experiments
+<br> We also looked into the deep learning, and built the model with 2 hidden layers, and relu activation function. Comparing SMOTE and Undersampling techniques, we tested 50,000 rows of sample data and calculated accuracy score, TruePostivies, FalseNegatives and Recall. 
+<br> Here's the result with SMOTE:
+![DL_SMOTE](./Image/DL_SMOTE.png)
+<br> Here's the result with Undersampling:
+![DL_Undersampling](./Image/Undersampling.png)
+<br> The result stays similar as the rest of the models.
+
+### Conclusion
+After cross validation and test data validation on the Machine Learning and Deep Learning models, we can tell Balanced Random Forest, Gradient Boosting and Random Forest give us the best Recall and Balanced Accuracy score. 
+<br> However, we noticed with SMOTE, the time spent on running the model is significantly more than the Undersampling method. In addition, in the real world, it would be more straightforward without manipulating the input data before running into the model. 
+<br> Considering the computational and process efficiency, along with the Recall score and balanced accuracy score of the models, we decided to use the Balanced Random Forest, which naturally integrates with the Undersampling process, as our prediction model.
+
+* Full dataset validation
+<br> Finally, we ran the full datasets(more than 1.4millions rows of data) into the Balanced Random Forest Classifier, and got the 88% of recall and 86.59337% of the balanced accuracy score within 2 mins.
+![Final_stats](./Image/Final_stats.png)
 
 
-### Data split for Machine Learning training and testing Purpose
+
+
+
