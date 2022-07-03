@@ -90,7 +90,7 @@ Furthermore, we used StratifiedKFold(n_splits = 5) across all 7 models with both
 
 ![Test_Data_Validation_Undersampling](./Image/Test_Data_Validation_Undersampling.png)
 
-<br> From the result and analysis above, We can tell Balanced Random Forest, Gradient Boosting and Random forest has the best recall score and decent balanced accuracy score. 
+<br> From the result and analysis above, We can tell Balanced Random Forest, Gradient Boosting and Random forest has the best recall score and decent balanced accuracy score across both SMOTE and Undersampling approaches.
 
 ### Other experiments
 <br> We also looked into the deep learning, and built the model with 2 hidden layers, and relu activation function. Comparing SMOTE and Undersampling techniques, we tested 50,000 rows of sample data and calculated accuracy score, TruePostivies, FalseNegatives and Recall. 
@@ -107,7 +107,7 @@ Furthermore, we used StratifiedKFold(n_splits = 5) across all 7 models with both
 ### Conclusion
 After cross validation and test data validation on the Machine Learning and Deep Learning models, we can tell Balanced Random Forest, Gradient Boosting and Random Forest give us the best Recall and Balanced Accuracy score. 
 <br> However, we noticed with SMOTE, the time spent on running the model is significantly more than the Undersampling method. In addition, in the real world, it would be more straightforward without manipulating the input data before running into the model. 
-<br> Considering the computational and process efficiency, along with the Recall score and balanced accuracy score of the models, we decided to use the Balanced Random Forest, which naturally integrates with the Undersampling process, as our prediction model.
+<br> Considering the computational and process efficiency, along with the Recall score and balanced accuracy score of the models, we decided to use the <strong>Balanced Random Forest</strong>, which naturally integrates with the Undersampling process, as our prediction model.
 
 * Full dataset validation
 <br> Finally, we ran the full datasets(more than 1.4millions rows of data) into the Balanced Random Forest Classifier, and got the <strong>88% of recall and 86.57% of the balanced accuracy score within 2 mins</strong>.
