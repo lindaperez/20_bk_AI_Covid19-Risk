@@ -40,6 +40,18 @@ After the data preprocessing, we are having an all-integer full datasets, with e
 As both the target and potential features are categorical numeric, we are using Chi-squared test and logistic Regression in R to validate if the underlying medical conditions are significantly relevant to the target ['Death']. The result shows almost all the medical conditions, as well as age(Adults and senior people) are significantly relative to the target ['Death'] based on the clean patient data(P value is smaller than 0.05), except the condition - ['pregnant'] and ['cardiovascular']. The result as follows:
 ![Statistical_Analysis_in_R](./Image/Statistical_Analysis_in_R.png)
 <br> So preliminarily, the features are relevant to the target. Even though ['pregnant'] and ['cardiovascular'] didn't appear significant to the target ['Death'], we are still going to proceed with them as they would be valuable info for the doctors to prepare further diagnosis and treatment.
+    
+### Wrapper Feature Selection
+    
+In order to make sure that our machine learning algorithms is not misled by irrelevant input features, the RFE algorithm (Recursive Feature Elimination) is employed to eliminate them. RFE take number of features to select as hyperparameter, so we test different numbers of features using the decision tree model. Performance increased as the number of features increased, but reached a limit after seven features. The below graph shows Box Plot of RFE Number of Selected Features vs. Classification Accuracy.
+   
+   [pic1] 
+    
+Additionally, RFE can automatically select the number of features by performing cross-validation evaluations of different numbers of features and selecting the number of features with the best mean score. Based on the results, the most relevant features are: "gender", "pneumonia", "diabetes", "hypertension", "obesity", "closed_contact", "age".
+    
+   [pic2]
+    
+Despite removing the irrelevant features, the performance of our final model is not improving (accuracy is 86.3% vs 86.5%), so we decide to keep them all. 
 
 ## Machine Learning Analysis
 After data preprocessing and preliminary feature engineering, we are ready to fit the data into the machine learning models. 
@@ -113,7 +125,7 @@ After cross validation and test data validation on the Machine Learning and Deep
 <br> Finally, we ran the full datasets(more than 1.4millions rows of data) into the Balanced Random Forest Classifier, and got the <strong>88% of recall and 86.57% of the balanced accuracy score within 2 mins</strong>.
 
 * Feature importances
-The feature importance from the Balanced Random Forest Classifier shows below, which aligns with our statistical analysis using R in preliminary feature engineering.
+<br> The feature importance from the Balanced Random Forest Classifier shows below, which aligns with our statistical analysis using R in preliminary feature engineering.
 ![brfc_feature_importances](./Image/brfc_feature_importances.png)
 
 
