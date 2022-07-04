@@ -58,7 +58,7 @@ After data preprocessing and preliminary feature engineering, we are ready to fi
 <br> As we figure, the class of '1' accounts for only 11% of the entire dataset, we are focusing on the techiniques and models that can handle the impact of the imbalanced dataset well.
 
 <br> Here's the scope of the machine learning analysis:
-<br> We are trying to compare the balanced accuracy score and false negative cases in the combination of following parameters:
+<br> We are trying to compare Recall and balanced accuracy score in the combination of following parameters:
 
 - Targets: ['DEATH']
 - Features: ['gender','pneumonia', 'new_age','pregnant', 'diabetes', 'copd','asthma', 'immunosup', 'hypertension','cardiovascular', 'obesity', 'renal_chronic', 'tobacco', 'another_complication','closed_contact']
