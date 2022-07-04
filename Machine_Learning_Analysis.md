@@ -42,11 +42,12 @@ As both the target and potential features are categorical numeric, we are using 
 <br> So preliminarily, the features are relevant to the target. Even though ['pregnant'] and ['cardiovascular'] didn't appear significant to the target ['Death'], we are still going to proceed with them as they would be valuable info for the doctors to prepare further diagnosis and treatment.
     
 ### Wrapper Feature Selection
-Since machine learning algorithms can be misled by irrelevant input features, the RFE algorithm (Recursive Feature Elimination) was used to drop the irrelevant features. Using the decision tree model, a different number of features were tested. We can see that performance improves as the number of features increases but reaches its limit after 7 features.
     
-  [pic here]
+Machine learning algorithms can be misled by irrelevant input features, so the RFE algorithm (Recursive Feature Elimination) was employed to eliminate them. Different numbers of features were tested using the decision tree model. Performance increased as the number of features increased, but reached a limit after seven features.
+   
+   [pic here] 
     
-In addition, RFE can automatically select the number of features by performing cross-validation evaluation of different numbers of features and automatically selecting the number of features that resulted in the best mean score. The result shows that the features: "gender","pneumonia","diabetes","hypertension","obesity","closed_contact", "age" are the most relevant features. The performance of the Random Forest model did not improve by dropping the irrelevant features (accuracy is 86.3% vs 86.5%)  so we decided to keep all of the columns. 
+Additionally, RFE can automatically select the number of features by performing cross-validation evaluations of different numbers of features and selecting the number of features with the best mean score. Based on the results, the most relevant features are: "gender", "pneumonia", "diabetes", "hypertension", "obesity", "closed_contact", "age". Despite removing the irrelevant features, the performance of the Random Forest model did not improve (accuracy is 86.3% vs 86.5%), so we decided to keep them all. 
 
 ## Machine Learning Analysis
 After data preprocessing and preliminary feature engineering, we are ready to fit the data into the machine learning models. 
