@@ -74,7 +74,7 @@ After data preprocessing and preliminary feature engineering, we are ready to fi
 
 ### Initial Cross Validation and Metrics 
 Based on the listed models above, we did 2 different kinds of cross validation - <strong>K fold and StratifiedKFold</strong> using a sample of the full datasets(at least 30,000 rows of data).
-<br> Given the use case of the project, we are hoping to screening the people, who are potentially infected with COVID and have these medical conditions. We would rather be more agreesive in classfying patients rather than miss any potential high risk patient. So <strong>recall</strong> of high risk class is the metrics we are focusing on.  
+<br> Given the use case of the project, we are hoping to screening the people, who are potentially infected with COVID and have these medical conditions. We would rather be more aggressive in classfying patients rather than miss any potential high risk patients. So <strong>Recall</strong> of the high risk class is the metrics we are focusing on.  
 <br> To address the imbalanced distribution of the '1' class, we evaluated the models with different <strong>resampling techniques</strong>: SMOTE, SMOTEENN, Undersampling, as well as with standard scaling and without. 
 <br> Here's an overview of the K-fold(n_splits=10) cross validation results showing the <strong>recall</strong> of different models(Using sample data with 30,000 rows): 
 ![CV_Resampling_Comparison](./Image/CV_Resampling_Comparison.png)
@@ -122,7 +122,7 @@ After cross validation and test data validation on the Machine Learning and Deep
 <br> Considering the computational and process efficiency, along with the Recall score and balanced accuracy score of the models, we decided to use the <strong>Balanced Random Forest</strong>, which naturally integrates with the Undersampling process, as our prediction model.
 
 * Full dataset validation
-<br> Finally, we ran the full datasets(more than 1.4millions rows of data) into the Balanced Random Forest Classifier, and got the <strong>88% of recall and 86.57% of the balanced accuracy score within 2 mins</strong>.
+<br> Finally, we ran the full datasets(more than 1.4 millions rows of data) into the Balanced Random Forest Classifier, and got the <strong>88% of recall and 86.57% of the balanced accuracy score within 2 mins</strong>.
 
 * Feature importances
 <br> The feature importance from the Balanced Random Forest Classifier shows below, which aligns with our statistical analysis using R in preliminary feature engineering.
