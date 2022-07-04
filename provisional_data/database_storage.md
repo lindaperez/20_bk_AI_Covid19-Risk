@@ -19,17 +19,27 @@ The decision of creating a Relational database was based on the sources found,
 ## ERD - SCHEMA
 
 Is located in [ERD schema](https://github.com/lindaperez/bk-covid19/blob/main/provisional_data/ERD/schema/schema_backup)
+- https://github.com/lindaperez/bk-covid19/blob/main/provisional_data/ERD/image_ERD_1.png
+- https://github.com/lindaperez/bk-covid19/blob/main/provisional_data/ERD/image_ERD_2.png
 
-## Colaborative Enviroments
 
-Latest environment from where it is exported the ERD
+## Collaborative Environments
 
-Sample db with 3500000 over around 16 million
-Endpoint: prod-covid-patients.cqbgcjbaetrj.us-west-1.rds.amazonaws.com
-username: postgres
-database: covid_db
+** Latest environment from where it is exported the ERD
 
-* sample environment 
+- **Full data with around 16 millions of rows**
+- Endpoint: prod-covid-patients.caxanw94agwb.us-west-1.rds.amazonaws.com
+- username: postgres
+- database: covid_db
+
+** **Old environments** from where it was exported the ERD
+
+- Sample db with 3500000 over around 16 million
+- Endpoint: prod-covid-patients.cqbgcjbaetrj.us-west-1.rds.amazonaws.com
+- username: postgres
+- database: covid_db
+
+** sample environment 
 
 - Sample db with 100000
 - Endpoint: prodsamplecovidpatients.cqbgcjbaetrj.us-west-1.rds.amazonaws.com
@@ -37,11 +47,12 @@ database: covid_db
 - database: sample_covid_patients
 
 
-* mock environment 
+** mock environment 
 
 - Endpoint: covidpatients.cqbgcjbaetrj.us-west-1.rds.amazonaws.com
 - username: postgres
 - database: covid_patients
+
 
 
 
