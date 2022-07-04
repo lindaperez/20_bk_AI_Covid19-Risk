@@ -43,11 +43,15 @@ As both the target and potential features are categorical numeric, we are using 
     
 ### Wrapper Feature Selection
     
-Machine learning algorithms can be misled by irrelevant input features, so the RFE algorithm (Recursive Feature Elimination) was employed to eliminate them. Different numbers of features were tested using the decision tree model. Performance increased as the number of features increased, but reached a limit after seven features.
+In order to make sure that our machine learning algorithms is not misled by irrelevant input features, the RFE algorithm (Recursive Feature Elimination) is employed to eliminate them. RFE take number of features to select as hyperparameter, so we test different numbers of features using the decision tree model. Performance increased as the number of features increased, but reached a limit after seven features. The below graph shows Box Plot of RFE Number of Selected Features vs. Classification Accuracy.
    
-   [pic here] 
+   [pic1] 
     
-Additionally, RFE can automatically select the number of features by performing cross-validation evaluations of different numbers of features and selecting the number of features with the best mean score. Based on the results, the most relevant features are: "gender", "pneumonia", "diabetes", "hypertension", "obesity", "closed_contact", "age". Despite removing the irrelevant features, the performance of the Random Forest model did not improve (accuracy is 86.3% vs 86.5%), so we decided to keep them all. 
+Additionally, RFE can automatically select the number of features by performing cross-validation evaluations of different numbers of features and selecting the number of features with the best mean score. Based on the results, the most relevant features are: "gender", "pneumonia", "diabetes", "hypertension", "obesity", "closed_contact", "age".
+    
+   [pic2]
+    
+Despite removing the irrelevant features, the performance of our final model is not improving (accuracy is 86.3% vs 86.5%), so we decide to keep them all. 
 
 ## Machine Learning Analysis
 After data preprocessing and preliminary feature engineering, we are ready to fit the data into the machine learning models. 
