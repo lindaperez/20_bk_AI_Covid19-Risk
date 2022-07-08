@@ -1,6 +1,7 @@
 # Project COVID-19
 Exploratory and predictive analysis over Covid-19 in Mexico
 
+Tableau Public Link:- https://public.tableau.com/app/profile/malvika4793
 Google slides:- https://docs.google.com/presentation/d/1yWZlWuGSaTPao9K6TRlcCLMK5A-ppxela27NbQfRnsU/edit#slide=id.p
 
 ## Overview
