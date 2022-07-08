@@ -1,0 +1,1816 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20221.22.0415.1144                               -->
+<workbook original-version='18.1' source-build='2022.1.1 (20221.22.0415.1144)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AccessibleZoneTabOrder.true...AccessibleZoneTabOrder />
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource caption='cat_state+ (Multiple Connections)' inline='true' name='federated.0mbepnn1kt7av91514fie1nd3h8z' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='prod-covid-patients.cqbgcjbaetrj.us-west-1.rds.amazonaws.com' name='postgres.0wbz30313953wa1g30vbn10sq1ph'>
+            <connection authentication='username-password' class='postgres' dbname='covid_db' one-time-sql='' port='5432' server='prod-covid-patients.cqbgcjbaetrj.us-west-1.rds.amazonaws.com' sslmode='require' username='postgres' />
+          </named-connection>
+          <named-connection caption='Mexico_Cases_Daily_State_National_Confirmed' name='textscan.1ymn6gy16jhft516hp27m0prknmd'>
+            <connection class='textscan' directory='D:/Data Class/Module Challenges/bk-covid19/Resources' filename='Mexico_Cases_Daily_State_National_Confirmed.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='postgres.0wbz30313953wa1g30vbn10sq1ph' name='patient' table='[public].[patient]' type='table' />
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='postgres.0wbz30313953wa1g30vbn10sq1ph' name='patient' table='[public].[patient]' type='table' />
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>index</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[index]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>index</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>data_file_updated</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[data_file_updated]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>data_file_updated</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id_patient</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[id_patient]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>id_patient</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>resp_monitoring</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[resp_monitoring]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>resp_monitoring</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>type_institution</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[type_institution]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>type_institution</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state_medical_unit</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[state_medical_unit]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>state_medical_unit</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gender</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[gender]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>gender</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state_patient_birth</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[state_patient_birth]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>state_patient_birth</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state_residence</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[state_residence]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>state_residence</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>city_patient_birth</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[city_patient_birth]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>city_patient_birth</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>type_patient</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[type_patient]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>type_patient</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date_admitted</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[date_admitted]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>date_admitted</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date_patient_symp</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[date_patient_symp]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>date_patient_symp</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date_patient_death</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[date_patient_death]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>date_patient_death</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>intubated</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[intubated]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>intubated</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pneumonia</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[pneumonia]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>pneumonia</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>age</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[age]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>age</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>resident</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[resident]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>resident</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pregnant</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[pregnant]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>pregnant</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>indigenous_lang</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[indigenous_lang]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>indigenous_lang</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>indigenous</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[indigenous]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>indigenous</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>diabetes</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[diabetes]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>diabetes</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>copd</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[copd]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>copd</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>asthma</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[asthma]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>asthma</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>immunosup</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[immunosup]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>immunosup</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hypertension</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[hypertension]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>hypertension</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>another_complication</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[another_complication]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>another_complication</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cardiovascular</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[cardiovascular]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>cardiovascular</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>obesity</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[obesity]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>obesity</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>renal_chronic</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[renal_chronic]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>renal_chronic</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tobacco</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[tobacco]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>tobacco</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>closed_contanct</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[closed_contanct]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>closed_contanct</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lab_sample</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[lab_sample]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>lab_sample</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lab_result</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[lab_result]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>lab_result</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>antigen_sample</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[antigen_sample]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>antigen_sample</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>antigen_result</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[antigen_result]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>antigen_result</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>final_class</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[final_class]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>final_class</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>migrant</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[migrant]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>migrant</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country_nationality</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country_nationality]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>country_nationality</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country_patient_birth</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country_patient_birth]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>country_patient_birth</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2147483647</width>
+            <contains-null>true</contains-null>
+            <cast-to-local-type>true</cast-to-local-type>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>icu</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[icu]</local-name>
+            <parent-name>[patient]</parent-name>
+            <remote-alias>icu</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[patient_021FD855B1AA412B9F9C2E3239053436]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Confirmed cases based on population' datatype='real' name='[Calculation_887209175085285376]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[No. of confirmed cases] / [population] *100' />
+      </column>
+      <column caption='Mortality based on population' datatype='real' name='[Calculation_887209175090601985]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[Mortality Count]/ [population] * 100' />
+      </column>
+      <_.fcp.ObjectModelTableType.true...column caption='patient' datatype='table' name='[__tableau_internal_object_id__].[patient_021FD855B1AA412B9F9C2E3239053436]' role='measure' type='quantitative' />
+      <column caption='Age' datatype='integer' name='[age]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Another Complication' datatype='integer' name='[another_complication]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Antigen Result' datatype='integer' name='[antigen_result]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Antigen Sample' datatype='integer' name='[antigen_sample]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Asthma' datatype='integer' name='[asthma]' role='dimension' type='ordinal'>
+        <aliases>
+          <alias key='1' value='Yes' />
+          <alias key='2' value='No' />
+          <alias key='98' value='Unknown' />
+        </aliases>
+      </column>
+      <column aggregation='Sum' caption='Cardiovascular' datatype='integer' name='[cardiovascular]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='City Patient Birth' datatype='integer' name='[city_patient_birth]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Closed Contanct' datatype='integer' name='[closed_contanct]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Copd' datatype='integer' name='[copd]' role='dimension' type='ordinal'>
+        <aliases>
+          <alias key='1' value='Yes' />
+          <alias key='2' value='No' />
+          <alias key='98' value='Unknown' />
+        </aliases>
+      </column>
+      <column caption='Country Nationality' datatype='string' name='[country_nationality]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Country Patient Birth' datatype='string' name='[country_patient_birth]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Data File Updated' datatype='string' name='[data_file_updated]' role='dimension' type='nominal' />
+      <column caption='Date Admitted' datatype='string' name='[date_admitted]' role='dimension' type='nominal' />
+      <column caption='Date Patient Death' datatype='string' name='[date_patient_death]' role='dimension' type='nominal' />
+      <column caption='Date Patient Symp' datatype='string' name='[date_patient_symp]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Diabetes' datatype='integer' name='[diabetes]' role='dimension' type='ordinal'>
+        <aliases>
+          <alias key='1' value='Yes' />
+          <alias key='2' value='No' />
+          <alias key='98' value='Unknown' />
+        </aliases>
+      </column>
+      <column aggregation='Sum' caption='Final Class' datatype='integer' name='[final_class]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Gender' datatype='integer' name='[gender]' role='dimension' type='ordinal'>
+        <aliases>
+          <alias key='1' value='Male' />
+          <alias key='2' value='Female' />
+        </aliases>
+      </column>
+      <column aggregation='Sum' caption='Hypertension' datatype='integer' name='[hypertension]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Icu' datatype='integer' name='[icu]' role='dimension' type='ordinal' />
+      <column caption='Id Patient' datatype='string' name='[id_patient]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Immunosup' datatype='integer' name='[immunosup]' role='dimension' type='ordinal'>
+        <aliases>
+          <alias key='1' value='Yes' />
+          <alias key='2' value='No' />
+          <alias key='98' value='Unknown' />
+        </aliases>
+      </column>
+      <column caption='Index' datatype='integer' name='[index]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Indigenous' datatype='integer' name='[indigenous]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Indigenous Lang' datatype='integer' name='[indigenous_lang]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Intubated' datatype='integer' name='[intubated]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Lab Result' datatype='integer' name='[lab_result]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Lab Sample' datatype='integer' name='[lab_sample]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Migrant' datatype='integer' name='[migrant]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Obesity' datatype='integer' name='[obesity]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Pneumonia' datatype='integer' name='[pneumonia]' role='dimension' type='ordinal'>
+        <aliases>
+          <alias key='1' value='Yes' />
+          <alias key='2' value='No' />
+          <alias key='99' value='Unknown' />
+        </aliases>
+      </column>
+      <column aggregation='Sum' caption='Pregnant' datatype='integer' name='[pregnant]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Renal Chronic' datatype='integer' name='[renal_chronic]' role='dimension' type='ordinal'>
+        <aliases>
+          <alias key='1' value='Yes' />
+          <alias key='2' value='No' />
+          <alias key='98' value='Unknown' />
+        </aliases>
+      </column>
+      <column aggregation='Sum' caption='Resident' datatype='integer' name='[resident]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Resp Monitoring' datatype='integer' name='[resp_monitoring]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='State Medical Unit' datatype='integer' name='[state_medical_unit]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='State Patient Birth' datatype='integer' name='[state_patient_birth]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='State Residence' datatype='integer' name='[state_residence]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Tobacco' datatype='integer' name='[tobacco]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Type Institution' datatype='integer' name='[type_institution]' role='dimension' type='ordinal' />
+      <column aggregation='Sum' caption='Type Patient' datatype='integer' name='[type_patient]' role='dimension' type='ordinal' />
+      <column-instance column='[date_patient_death]' derivation='Count' name='[cnt:date_patient_death:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[date_admitted]' derivation='CountD' name='[ctd:date_admitted:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[date_patient_death]' derivation='CountD' name='[ctd:date_patient_death:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[date_patient_death]' derivation='None' name='[none:date_patient_death:nk]' pivot='key' type='nominal' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-aliased-fields='true' show-hidden-fields='true' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.0mbepnn1kt7av91514fie1nd3h8z].[ctd:date_admitted:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0mbepnn1kt7av91514fie1nd3h8z].[cnt:date_patient_death:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0mbepnn1kt7av91514fie1nd3h8z].[ctd:date_patient_death:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:date_patient_death:nk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;India&quot;' />
+      </semantic-values>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='patient' id='patient_021FD855B1AA412B9F9C2E3239053436'>
+            <properties context=''>
+              <relation connection='postgres.0wbz30313953wa1g30vbn10sq1ph' name='patient' table='[public].[patient]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <actions>
+    <action caption='Filter 1 (generated)' name='[Action1_F5BFDEDE759D4092AAF69E4CADBDC6AD]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Death Rate based on Medical Conditions' type='sheet' worksheet='Death Rate based on Asthma' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Death Rate based on Medical Conditions' />
+      </command>
+    </action>
+  </actions>
+  <worksheets>
+    <worksheet name='Death Rate based on Asthma'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cat_state+ (Multiple Connections)' name='federated.0mbepnn1kt7av91514fie1nd3h8z' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0mbepnn1kt7av91514fie1nd3h8z'>
+            <column aggregation='Sum' caption='Asthma' datatype='integer' name='[asthma]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='1' value='Yes' />
+                <alias key='2' value='No' />
+                <alias key='98' value='Unknown' />
+              </aliases>
+            </column>
+            <column-instance column='[date_patient_death]' derivation='Count' name='[cnt:date_patient_death:qk]' pivot='key' type='quantitative' />
+            <column caption='Date Patient Death' datatype='string' name='[date_patient_death]' role='dimension' type='nominal' />
+            <column aggregation='Sum' caption='Gender' datatype='integer' name='[gender]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='1' value='Male' />
+                <alias key='2' value='Female' />
+              </aliases>
+            </column>
+            <column-instance column='[asthma]' derivation='None' name='[none:asthma:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[date_patient_death]' derivation='None' name='[none:date_patient_death:nk]' pivot='key' type='nominal' />
+            <column-instance column='[gender]' derivation='None' name='[none:gender:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:date_patient_death:nk]'>
+            <groupfilter from='&quot;2020-01-02&quot;' function='range' level='[none:date_patient_death:nk]' to='&quot;2021-09-28&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:gender:ok]'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:gender:ok]' member='1' />
+              <groupfilter function='member' level='[none:gender:ok]' member='2' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:gender:ok]</column>
+            <column>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:date_patient_death:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:asthma:ok]</rows>
+        <cols>[federated.0mbepnn1kt7av91514fie1nd3h8z].[cnt:date_patient_death:qk]</cols>
+      </table>
+      <simple-id uuid='{108F40C5-A394-4B77-84E8-68AAD3B5905B}' />
+    </worksheet>
+    <worksheet name='Death Rate based on Diabetes'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cat_state+ (Multiple Connections)' name='federated.0mbepnn1kt7av91514fie1nd3h8z' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0mbepnn1kt7av91514fie1nd3h8z'>
+            <column-instance column='[date_patient_death]' derivation='Count' name='[cnt:date_patient_death:qk]' pivot='key' type='quantitative' />
+            <column caption='Date Patient Death' datatype='string' name='[date_patient_death]' role='dimension' type='nominal' />
+            <column aggregation='Sum' caption='Diabetes' datatype='integer' name='[diabetes]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='1' value='Yes' />
+                <alias key='2' value='No' />
+                <alias key='98' value='Unknown' />
+              </aliases>
+            </column>
+            <column aggregation='Sum' caption='Gender' datatype='integer' name='[gender]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='1' value='Male' />
+                <alias key='2' value='Female' />
+              </aliases>
+            </column>
+            <column-instance column='[date_patient_death]' derivation='None' name='[none:date_patient_death:nk]' pivot='key' type='nominal' />
+            <column-instance column='[diabetes]' derivation='None' name='[none:diabetes:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[gender]' derivation='None' name='[none:gender:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:date_patient_death:nk]'>
+            <groupfilter from='&quot;2020-01-02&quot;' function='range' level='[none:date_patient_death:nk]' to='&quot;2021-09-28&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:gender:ok]'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:gender:ok]' member='1' />
+              <groupfilter function='member' level='[none:gender:ok]' member='2' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:gender:ok]</column>
+            <column>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:date_patient_death:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#f28e2b' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:diabetes:ok]</rows>
+        <cols>[federated.0mbepnn1kt7av91514fie1nd3h8z].[cnt:date_patient_death:qk]</cols>
+      </table>
+      <simple-id uuid='{95AF0A44-1F13-439F-989E-69BA8E284B46}' />
+    </worksheet>
+    <worksheet name='Death Rate based on Immunosuppressants'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cat_state+ (Multiple Connections)' name='federated.0mbepnn1kt7av91514fie1nd3h8z' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0mbepnn1kt7av91514fie1nd3h8z'>
+            <column-instance column='[date_patient_death]' derivation='CountD' name='[ctd:date_patient_death:qk]' pivot='key' type='quantitative' />
+            <column caption='Date Patient Death' datatype='string' name='[date_patient_death]' role='dimension' type='nominal' />
+            <column aggregation='Sum' caption='Gender' datatype='integer' name='[gender]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='1' value='Male' />
+                <alias key='2' value='Female' />
+              </aliases>
+            </column>
+            <column aggregation='Sum' caption='Immunosup' datatype='integer' name='[immunosup]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='1' value='Yes' />
+                <alias key='2' value='No' />
+                <alias key='98' value='Unknown' />
+              </aliases>
+            </column>
+            <column-instance column='[gender]' derivation='None' name='[none:gender:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[immunosup]' derivation='None' name='[none:immunosup:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:gender:ok]'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:gender:ok]' member='1' />
+              <groupfilter function='member' level='[none:gender:ok]' member='2' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:gender:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#59a14f' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:immunosup:ok]</rows>
+        <cols>[federated.0mbepnn1kt7av91514fie1nd3h8z].[ctd:date_patient_death:qk]</cols>
+      </table>
+      <simple-id uuid='{B1236C67-82C5-477F-972D-E298E03B49E8}' />
+    </worksheet>
+    <worksheet name='Death Rate based on Pneumonia'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cat_state+ (Multiple Connections)' name='federated.0mbepnn1kt7av91514fie1nd3h8z' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0mbepnn1kt7av91514fie1nd3h8z'>
+            <column-instance column='[date_patient_death]' derivation='Count' name='[cnt:date_patient_death:qk]' pivot='key' type='quantitative' />
+            <column caption='Date Patient Death' datatype='string' name='[date_patient_death]' role='dimension' type='nominal' />
+            <column aggregation='Sum' caption='Gender' datatype='integer' name='[gender]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='1' value='Male' />
+                <alias key='2' value='Female' />
+              </aliases>
+            </column>
+            <column-instance column='[date_patient_death]' derivation='None' name='[none:date_patient_death:nk]' pivot='key' type='nominal' />
+            <column-instance column='[gender]' derivation='None' name='[none:gender:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[pneumonia]' derivation='None' name='[none:pneumonia:ok]' pivot='key' type='ordinal' />
+            <column aggregation='Sum' caption='Pneumonia' datatype='integer' name='[pneumonia]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='1' value='Yes' />
+                <alias key='2' value='No' />
+                <alias key='99' value='Unknown' />
+              </aliases>
+            </column>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:date_patient_death:nk]'>
+            <groupfilter from='&quot;2020-01-02&quot;' function='range' level='[none:date_patient_death:nk]' to='&quot;2021-09-28&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:gender:ok]'>
+            <groupfilter function='level-members' level='[none:gender:ok]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:gender:ok]</column>
+            <column>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:date_patient_death:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#b07aa1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:pneumonia:ok]</rows>
+        <cols>[federated.0mbepnn1kt7av91514fie1nd3h8z].[cnt:date_patient_death:qk]</cols>
+      </table>
+      <simple-id uuid='{526B84A0-4214-46B0-8FE4-826BA9CD03B5}' />
+    </worksheet>
+    <worksheet name='Death Rate based on Renal Chronic Failure'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cat_state+ (Multiple Connections)' name='federated.0mbepnn1kt7av91514fie1nd3h8z' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0mbepnn1kt7av91514fie1nd3h8z'>
+            <column-instance column='[date_patient_death]' derivation='Count' name='[cnt:date_patient_death:qk]' pivot='key' type='quantitative' />
+            <column caption='Date Patient Death' datatype='string' name='[date_patient_death]' role='dimension' type='nominal' />
+            <column aggregation='Sum' caption='Gender' datatype='integer' name='[gender]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='1' value='Male' />
+                <alias key='2' value='Female' />
+              </aliases>
+            </column>
+            <column-instance column='[date_patient_death]' derivation='None' name='[none:date_patient_death:nk]' pivot='key' type='nominal' />
+            <column-instance column='[gender]' derivation='None' name='[none:gender:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[renal_chronic]' derivation='None' name='[none:renal_chronic:ok]' pivot='key' type='ordinal' />
+            <column aggregation='Sum' caption='Renal Chronic' datatype='integer' name='[renal_chronic]' role='dimension' type='ordinal'>
+              <aliases>
+                <alias key='1' value='Yes' />
+                <alias key='2' value='No' />
+                <alias key='98' value='Unknown' />
+              </aliases>
+            </column>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:date_patient_death:nk]'>
+            <groupfilter from='&quot;2020-01-02&quot;' function='range' level='[none:date_patient_death:nk]' to='&quot;2021-09-28&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:gender:ok]'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:gender:ok]' member='1' />
+              <groupfilter function='member' level='[none:gender:ok]' member='2' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:gender:ok]</column>
+            <column>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:date_patient_death:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#ba4749' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:renal_chronic:ok]</rows>
+        <cols>[federated.0mbepnn1kt7av91514fie1nd3h8z].[cnt:date_patient_death:qk]</cols>
+      </table>
+      <simple-id uuid='{23A4373C-AF3D-4F1D-9662-73AE4141600F}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard _.fcp.AccessibleZoneTabOrder.true...enable-sort-zone-taborder='true' name='Death Rate based on Medical Conditions'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='23' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='5250' id='24' type-v2='title' w='98400' x='800' y='1000'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+            <zone h='92750' id='21' type-v2='layout-basic' w='98400' x='800' y='6250'>
+              <zone h='59152' id='7' param='horz' type-v2='layout-flow' w='98400' x='800' y='39848'>
+                <zone h='59152' id='5' type-v2='layout-basic' w='98400' x='800' y='39848'>
+                  <zone h='30641' id='9' name='Death Rate based on Renal Chronic Failure' w='49200' x='800' y='68359'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='28511' id='10' name='Death Rate based on Asthma' w='49200' x='800' y='39848'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='28511' id='12' name='Death Rate based on Immunosuppressants' w='49200' x='50000' y='39848'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='30641' id='11' name='Death Rate based on Diabetes' w='49200' x='50000' y='68359'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                </zone>
+              </zone>
+              <zone h='33598' id='3' name='Death Rate based on Pneumonia' w='98400' x='800' y='6250'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1300' minheight='1300' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='28' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='27' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+                <zone h='5250' id='24' type-v2='title' w='98400' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='261' h='33598' id='3' is-fixed='true' name='Death Rate based on Pneumonia' w='98400' x='800' y='6250'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='220' h='28511' id='10' is-fixed='true' name='Death Rate based on Asthma' w='49200' x='800' y='39848'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='220' h='28511' id='12' is-fixed='true' name='Death Rate based on Immunosuppressants' w='49200' x='50000' y='39848'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='237' h='30641' id='9' is-fixed='true' name='Death Rate based on Renal Chronic Failure' w='49200' x='800' y='68359'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='237' h='30641' id='11' is-fixed='true' name='Death Rate based on Diabetes' w='49200' x='50000' y='68359'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{B193F13C-1BC4-4F55-ACAA-C2FB87A5ACA3}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='Death Rate based on Pneumonia'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:gender:ok]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:date_patient_death:nk]</field>
+            <field>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:gender:ok]</field>
+            <field>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:pneumonia:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{E80152F9-4F92-46EA-8082-261807B59093}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Death Rate based on Renal Chronic Failure'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:gender:ok]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:date_patient_death:nk]</field>
+            <field>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:gender:ok]</field>
+            <field>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:renal_chronic:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{D9E54B70-0B56-4651-93B1-D0B38626BB07}' />
+    </window>
+    <window class='worksheet' name='Death Rate based on Asthma'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:gender:ok]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:asthma:ok]</field>
+            <field>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:date_patient_death:nk]</field>
+            <field>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:gender:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{A6EDD365-86F7-4019-962F-1DE71D1C855D}' />
+    </window>
+    <window class='worksheet' name='Death Rate based on Diabetes'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:gender:ok]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:date_patient_death:nk]</field>
+            <field>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:diabetes:ok]</field>
+            <field>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:gender:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{3389504E-168A-4477-92B4-01C21EA08352}' />
+    </window>
+    <window class='worksheet' name='Death Rate based on Immunosuppressants'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:gender:ok]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:date_patient_death:nk]</field>
+            <field>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:gender:ok]</field>
+            <field>[federated.0mbepnn1kt7av91514fie1nd3h8z].[none:immunosup:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{6EEBF142-6A06-40DD-B61A-17DFE5E3AEBC}' />
+    </window>
+    <window class='dashboard' name='Death Rate based on Medical Conditions'>
+      <viewpoints>
+        <viewpoint name='Death Rate based on Asthma'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Death Rate based on Diabetes'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Death Rate based on Immunosuppressants'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Death Rate based on Pneumonia'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Death Rate based on Renal Chronic Failure'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{CB2A4FF6-BE6B-4D7D-8A23-0E6E1F06AB52}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='139' name='Death Rate based on Asthma' width='192'>
+      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
+      AGI0BSBG+x8J9CXT2ZZ4+AAAAABJRU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='139' name='Death Rate based on Diabetes' width='192'>
+      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
+      rpEAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='139' name='Death Rate based on Immunosuppressants' width='192'>
+      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
+      NAUgRvs/0rToKsCm5WgAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='Death Rate based on Medical Conditions' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='139' name='Death Rate based on Pneumonia' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='139' name='Death Rate based on Renal Chronic Failure' width='192'>
+      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
+      o/0PAFcfJbebWFkAAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
