@@ -1,0 +1,1017 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Covid19\_StatisticalAnalysis},
+  pdfauthor={Safaa Dorian},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{Covid19\_StatisticalAnalysis}
+\author{Safaa Dorian}
+\date{2022-06-25}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Import the library}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(caret)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: ggplot2
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Read the data}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{\textquotesingle{}clean\_ml\_data.csv\textquotesingle{}}\NormalTok{,}\AttributeTok{stringsAsFactors =}\NormalTok{ F)}
+\FunctionTok{head}\NormalTok{(df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   gender pneumonia pregnant diabetes copd asthma immunosup hypertension
+## 1      0         0        0        0    0      0         0            0
+## 2      0         0        0        0    0      0         0            0
+## 3      1         0        0        0    0      0         0            1
+## 4      0         0        0        0    0      0         0            0
+## 5      0         0        0        0    0      0         0            0
+## 6      0         0        0        0    0      0         0            0
+##   cardiovascular obesity renal_chronic tobacco death intubation ICU new_age
+## 1              0       0             0       0     0          0   0       3
+## 2              0       0             0       0     0          0   0       2
+## 3              0       0             0       0     0          0   0       4
+## 4              0       0             0       0     0          0   0       3
+## 5              0       1             0       0     0          0   0       3
+## 6              0       0             0       0     0          0   0       2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      gender         pneumonia         pregnant           diabetes     
+##  Min.   :0.0000   Min.   :0.0000   Min.   :0.000000   Min.   :0.0000  
+##  1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.000000   1st Qu.:0.0000  
+##  Median :0.0000   Median :0.0000   Median :0.000000   Median :0.0000  
+##  Mean   :0.4946   Mean   :0.1587   Mean   :0.006572   Mean   :0.1413  
+##  3rd Qu.:1.0000   3rd Qu.:0.0000   3rd Qu.:0.000000   3rd Qu.:0.0000  
+##  Max.   :1.0000   Max.   :1.0000   Max.   :1.000000   Max.   :1.0000  
+##       copd            asthma          immunosup         hypertension   
+##  Min.   :0.0000   Min.   :0.00000   Min.   :0.000000   Min.   :0.0000  
+##  1st Qu.:0.0000   1st Qu.:0.00000   1st Qu.:0.000000   1st Qu.:0.0000  
+##  Median :0.0000   Median :0.00000   Median :0.000000   Median :0.0000  
+##  Mean   :0.0123   Mean   :0.02402   Mean   :0.009475   Mean   :0.1813  
+##  3rd Qu.:0.0000   3rd Qu.:0.00000   3rd Qu.:0.000000   3rd Qu.:0.0000  
+##  Max.   :1.0000   Max.   :1.00000   Max.   :1.000000   Max.   :1.0000  
+##  cardiovascular       obesity       renal_chronic        tobacco       
+##  Min.   :0.00000   Min.   :0.0000   Min.   :0.00000   Min.   :0.00000  
+##  1st Qu.:0.00000   1st Qu.:0.0000   1st Qu.:0.00000   1st Qu.:0.00000  
+##  Median :0.00000   Median :0.0000   Median :0.00000   Median :0.00000  
+##  Mean   :0.01724   Mean   :0.1588   Mean   :0.01672   Mean   :0.07501  
+##  3rd Qu.:0.00000   3rd Qu.:0.0000   3rd Qu.:0.00000   3rd Qu.:0.00000  
+##  Max.   :1.00000   Max.   :1.0000   Max.   :1.00000   Max.   :1.00000  
+##      death          intubation           ICU             new_age    
+##  Min.   :0.0000   Min.   :0.00000   Min.   :0.00000   Min.   :1.00  
+##  1st Qu.:0.0000   1st Qu.:0.00000   1st Qu.:0.00000   1st Qu.:2.00  
+##  Median :0.0000   Median :0.00000   Median :0.00000   Median :3.00  
+##  Mean   :0.1032   Mean   :0.03247   Mean   :0.01771   Mean   :3.19  
+##  3rd Qu.:0.0000   3rd Qu.:0.00000   3rd Qu.:0.00000   3rd Qu.:4.00  
+##  Max.   :1.0000   Max.   :1.00000   Max.   :1.00000   Max.   :5.00
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# transform type of columns from numerical to factors}
+
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{gender }\OtherTok{=} \FunctionTok{as.factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{gender)}
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{new\_age }\OtherTok{=} \FunctionTok{as.factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{new\_age)}
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{pregnant }\OtherTok{=} \FunctionTok{as.factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{pregnant)}
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{diabetes }\OtherTok{=} \FunctionTok{as.factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{diabetes)}
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{copd }\OtherTok{=} \FunctionTok{as.factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{copd)}
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{asthma }\OtherTok{=} \FunctionTok{as.factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{asthma)}
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{immunosup }\OtherTok{=} \FunctionTok{as.factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{immunosup)}
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{hypertension }\OtherTok{=} \FunctionTok{as.factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{hypertension)}
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{cardiovascular }\OtherTok{=} \FunctionTok{as.factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{cardiovascular)}
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{obesity }\OtherTok{=} \FunctionTok{as.factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{obesity)}
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{renal\_chronic }\OtherTok{=} \FunctionTok{as.factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{renal\_chronic)}
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{tobacco }\OtherTok{=} \FunctionTok{as.factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{tobacco)}
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{death }\OtherTok{=} \FunctionTok{as.factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{death)}
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{intubation }\OtherTok{=} \FunctionTok{as.factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{intubation)}
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{ICU }\OtherTok{=} \FunctionTok{as.factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{ICU)}
+
+\FunctionTok{summary}\NormalTok{(df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  gender       pneumonia      pregnant    diabetes    copd        asthma     
+##  0:716505   Min.   :0.0000   0:1408374   0:1217403   0:1400255   0:1383639  
+##  1:701186   1st Qu.:0.0000   1:   9317   1: 200288   1:  17436   1:  34052  
+##             Median :0.0000                                                  
+##             Mean   :0.1587                                                  
+##             3rd Qu.:0.0000                                                  
+##             Max.   :1.0000                                                  
+##  immunosup   hypertension cardiovascular obesity     renal_chronic tobacco    
+##  0:1404258   0:1160635    0:1393243      0:1192568   0:1393994     0:1311352  
+##  1:  13433   1: 257056    1:  24448      1: 225123   1:  23697     1: 106339  
+##                                                                               
+##                                                                               
+##                                                                               
+##                                                                               
+##  death       intubation  ICU         new_age   
+##  0:1271359   0:1371652   0:1392579   1: 40886  
+##  1: 146332   1:  46039   1:  25112   2:361389  
+##                                      3:480422  
+##                                      4:357949  
+##                                      5:177045  
+## 
+\end{verbatim}
+
+\hypertarget{chi-squared-test}{%
+\subsection{Chi-squared test}\label{chi-squared-test}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# pregnancy risk}
+\NormalTok{pregnancy\_death }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{pregnant,df}\SpecialCharTok{$}\NormalTok{death) }\CommentTok{\#generate contingency table with death column}
+\FunctionTok{chisq.test}\NormalTok{(pregnancy\_death) }\CommentTok{\#compare categorical distributions}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  pregnancy_death
+## X-squared = 847.64, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pregnancy\_ICU }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{pregnant,df}\SpecialCharTok{$}\NormalTok{ICU) }\CommentTok{\#generate contingency table with ICU column}
+\FunctionTok{chisq.test}\NormalTok{(pregnancy\_ICU)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  pregnancy_ICU
+## X-squared = 14.585, df = 1, p-value = 0.000134
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pregnancy\_intubation }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{pregnant,df}\SpecialCharTok{$}\NormalTok{intubation) }\CommentTok{\#generate contingency table with intubation column}
+\FunctionTok{chisq.test}\NormalTok{(pregnancy\_intubation)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  pregnancy_intubation
+## X-squared = 99.453, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# gender risk}
+\NormalTok{gender\_death }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{gender,df}\SpecialCharTok{$}\NormalTok{death) }\CommentTok{\#generate contingency table with death column}
+\FunctionTok{chisq.test}\NormalTok{(gender\_death) }\CommentTok{\#compare categorical distributions}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  gender_death
+## X-squared = 10879, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gender\_ICU }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{gender,df}\SpecialCharTok{$}\NormalTok{ICU) }\CommentTok{\#generate contingency table with ICU column}
+\FunctionTok{chisq.test}\NormalTok{(gender\_ICU)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  gender_ICU
+## X-squared = 1809, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gender\_intubation }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{gender,df}\SpecialCharTok{$}\NormalTok{intubation) }\CommentTok{\#generate contingency table with intubation column}
+\FunctionTok{chisq.test}\NormalTok{(gender\_intubation)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  gender_intubation
+## X-squared = 3713.5, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# diabetes risk}
+\NormalTok{diabetes\_death }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{diabetes,df}\SpecialCharTok{$}\NormalTok{death) }\CommentTok{\#generate contingency table with death column}
+\FunctionTok{chisq.test}\NormalTok{(diabetes\_death) }\CommentTok{\#compare categorical distributions}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  diabetes_death
+## X-squared = 78160, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{diabetes\_ICU }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{diabetes,df}\SpecialCharTok{$}\NormalTok{ICU) }\CommentTok{\#generate contingency table with ICU column}
+\FunctionTok{chisq.test}\NormalTok{(diabetes\_ICU)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  diabetes_ICU
+## X-squared = 7996.1, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{diabetes\_intubation }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{diabetes,df}\SpecialCharTok{$}\NormalTok{intubation) }\CommentTok{\#generate contingency table with intubation column}
+\FunctionTok{chisq.test}\NormalTok{(diabetes\_intubation)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  diabetes_intubation
+## X-squared = 18387, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# copd risk}
+\NormalTok{copd\_death }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{copd,df}\SpecialCharTok{$}\NormalTok{death) }\CommentTok{\#generate contingency table with death column}
+\FunctionTok{chisq.test}\NormalTok{(copd\_death) }\CommentTok{\#compare categorical distributions}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  copd_death
+## X-squared = 15085, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{copd\_ICU }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{copd,df}\SpecialCharTok{$}\NormalTok{ICU) }\CommentTok{\#generate contingency table with ICU column}
+\FunctionTok{chisq.test}\NormalTok{(copd\_ICU)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  copd_ICU
+## X-squared = 1019.3, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{copd\_intubation }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{copd,df}\SpecialCharTok{$}\NormalTok{intubation) }\CommentTok{\#generate contingency table with intubation column}
+\FunctionTok{chisq.test}\NormalTok{(copd\_intubation)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  copd_intubation
+## X-squared = 2898.1, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# asthma risk}
+\NormalTok{asthma\_death }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{asthma,df}\SpecialCharTok{$}\NormalTok{death) }\CommentTok{\#generate contingency table with death column}
+\FunctionTok{chisq.test}\NormalTok{(asthma\_death) }\CommentTok{\#compare categorical distributions}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  asthma_death
+## X-squared = 195.9, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{asthma\_ICU }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{asthma,df}\SpecialCharTok{$}\NormalTok{ICU) }\CommentTok{\#generate contingency table with ICU column}
+\FunctionTok{chisq.test}\NormalTok{(asthma\_ICU)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  asthma_ICU
+## X-squared = 6.3662, df = 1, p-value = 0.01163
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{asthma\_intubation }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{asthma,df}\SpecialCharTok{$}\NormalTok{intubation) }\CommentTok{\#generate contingency table with intubation column}
+\FunctionTok{chisq.test}\NormalTok{(asthma\_intubation)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  asthma_intubation
+## X-squared = 21.069, df = 1, p-value = 4.43e-06
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# immunosup risk}
+\NormalTok{immunosup\_death }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{immunosup,df}\SpecialCharTok{$}\NormalTok{death) }\CommentTok{\#generate contingency table with death column}
+\FunctionTok{chisq.test}\NormalTok{(immunosup\_death) }\CommentTok{\#compare categorical distributions}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  immunosup_death
+## X-squared = 3638.7, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{immunosup\_ICU }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{immunosup,df}\SpecialCharTok{$}\NormalTok{ICU) }\CommentTok{\#generate contingency table with ICU column}
+\FunctionTok{chisq.test}\NormalTok{(immunosup\_ICU)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  immunosup_ICU
+## X-squared = 645.43, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{immunosup\_intubation }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{immunosup,df}\SpecialCharTok{$}\NormalTok{intubation) }\CommentTok{\#generate contingency table with intubation column}
+\FunctionTok{chisq.test}\NormalTok{(immunosup\_intubation)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  immunosup_intubation
+## X-squared = 1254.7, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# hypertension risk}
+\NormalTok{hypertension\_death }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{hypertension,df}\SpecialCharTok{$}\NormalTok{death) }\CommentTok{\#generate contingency table with death column}
+\FunctionTok{chisq.test}\NormalTok{(hypertension\_death) }\CommentTok{\#compare categorical distributions}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  hypertension_death
+## X-squared = 80997, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{hypertension\_ICU }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{hypertension,df}\SpecialCharTok{$}\NormalTok{ICU) }\CommentTok{\#generate contingency table with ICU column}
+\FunctionTok{chisq.test}\NormalTok{(hypertension\_ICU)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  hypertension_ICU
+## X-squared = 6490.9, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{hypertension\_intubation }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{hypertension,df}\SpecialCharTok{$}\NormalTok{intubation) }\CommentTok{\#generate contingency table with intubation column}
+\FunctionTok{chisq.test}\NormalTok{(hypertension\_intubation)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  hypertension_intubation
+## X-squared = 18418, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# cardiovascular risk}
+\NormalTok{cardiovascular\_death }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{cardiovascular,df}\SpecialCharTok{$}\NormalTok{death) }\CommentTok{\#generate contingency table with death column}
+\FunctionTok{chisq.test}\NormalTok{(cardiovascular\_death) }\CommentTok{\#compare categorical distributions}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  cardiovascular_death
+## X-squared = 11490, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cardiovascular\_ICU }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{cardiovascular,df}\SpecialCharTok{$}\NormalTok{ICU) }\CommentTok{\#generate contingency table with ICU column}
+\FunctionTok{chisq.test}\NormalTok{(cardiovascular\_ICU)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  cardiovascular_ICU
+## X-squared = 1386.9, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cardiovascular\_intubation }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{cardiovascular,df}\SpecialCharTok{$}\NormalTok{intubation) }\CommentTok{\#generate contingency table with intubation column}
+\FunctionTok{chisq.test}\NormalTok{(cardiovascular\_intubation)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  cardiovascular_intubation
+## X-squared = 2605.8, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# obesity risk}
+\NormalTok{obesity\_death }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{obesity,df}\SpecialCharTok{$}\NormalTok{death) }\CommentTok{\#generate contingency table with death column}
+\FunctionTok{chisq.test}\NormalTok{(obesity\_death) }\CommentTok{\#compare categorical distributions}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  obesity_death
+## X-squared = 6050.5, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{obesity\_ICU }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{obesity,df}\SpecialCharTok{$}\NormalTok{ICU) }\CommentTok{\#generate contingency table with ICU column}
+\FunctionTok{chisq.test}\NormalTok{(obesity\_ICU)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  obesity_ICU
+## X-squared = 2562.6, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{obesity\_intubation }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{obesity,df}\SpecialCharTok{$}\NormalTok{intubation) }\CommentTok{\#generate contingency table with intubation column}
+\FunctionTok{chisq.test}\NormalTok{(obesity\_intubation)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  obesity_intubation
+## X-squared = 3323.2, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# renal\_chronic risk}
+\NormalTok{renal\_chronic\_death }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{renal\_chronic,df}\SpecialCharTok{$}\NormalTok{death) }\CommentTok{\#generate contingency table with death column}
+\FunctionTok{chisq.test}\NormalTok{(renal\_chronic\_death) }\CommentTok{\#compare categorical distributions}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  renal_chronic_death
+## X-squared = 29684, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{renal\_chronic\_ICU }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{renal\_chronic,df}\SpecialCharTok{$}\NormalTok{ICU) }\CommentTok{\#generate contingency table with ICU column}
+\FunctionTok{chisq.test}\NormalTok{(renal\_chronic\_ICU)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  renal_chronic_ICU
+## X-squared = 834.75, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{renal\_chronic\_intubation }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{renal\_chronic,df}\SpecialCharTok{$}\NormalTok{intubation) }\CommentTok{\#generate contingency table with intubation column}
+\FunctionTok{chisq.test}\NormalTok{(renal\_chronic\_intubation)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  renal_chronic_intubation
+## X-squared = 4584, df = 1, p-value < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# tobacco risk}
+\NormalTok{tobacco\_death }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{tobacco,df}\SpecialCharTok{$}\NormalTok{death) }\CommentTok{\#generate contingency table with death column}
+\FunctionTok{chisq.test}\NormalTok{(tobacco\_death) }\CommentTok{\#compare categorical distributions}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  tobacco_death
+## X-squared = 31.008, df = 1, p-value = 2.569e-08
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tobacco\_ICU }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{tobacco,df}\SpecialCharTok{$}\NormalTok{ICU) }\CommentTok{\#generate contingency table with ICU column}
+\FunctionTok{chisq.test}\NormalTok{(tobacco\_ICU)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  tobacco_ICU
+## X-squared = 0.027692, df = 1, p-value = 0.8678
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tobacco\_intubation }\OtherTok{\textless{}{-}} \FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{tobacco,df}\SpecialCharTok{$}\NormalTok{intubation) }\CommentTok{\#generate contingency table with intubation column}
+\FunctionTok{chisq.test}\NormalTok{(tobacco\_intubation)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  tobacco_intubation
+## X-squared = 62.694, df = 1, p-value = 2.415e-15
+\end{verbatim}
+
+\hypertarget{logistic-regression-to-check-the-features-significance}{%
+\subsection{Logistic Regression to check the features
+significance}\label{logistic-regression-to-check-the-features-significance}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#make the model reproducible}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+
+\CommentTok{\#Use 70\% of dataset as training set and remaining 30\% as testing set}
+\NormalTok{sample }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{, }\ConstantTok{FALSE}\NormalTok{), }\FunctionTok{nrow}\NormalTok{(df), }\AttributeTok{replace=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{prob=}\FunctionTok{c}\NormalTok{(}\FloatTok{0.7}\NormalTok{,}\FloatTok{0.3}\NormalTok{))}
+\NormalTok{train }\OtherTok{\textless{}{-}}\NormalTok{ df[sample, ]}
+\NormalTok{test }\OtherTok{\textless{}{-}}\NormalTok{ df[}\SpecialCharTok{!}\NormalTok{sample, ] }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#fit logistic regression model with death column as outcome}
+\NormalTok{model }\OtherTok{\textless{}{-}} \FunctionTok{glm}\NormalTok{(death}\SpecialCharTok{\textasciitilde{}}\NormalTok{ gender}\SpecialCharTok{+}\NormalTok{ pregnant }\SpecialCharTok{+}\NormalTok{ diabetes }\SpecialCharTok{+}\NormalTok{ copd }\SpecialCharTok{+}\NormalTok{ asthma }\SpecialCharTok{+}\NormalTok{ immunosup }\SpecialCharTok{+}\NormalTok{ hypertension }\SpecialCharTok{+}\NormalTok{ cardiovascular}\SpecialCharTok{+} 
+\NormalTok{               obesity }\SpecialCharTok{+}\NormalTok{ renal\_chronic }\SpecialCharTok{+}\NormalTok{ tobacco  }\SpecialCharTok{+}\NormalTok{ new\_age , }\AttributeTok{family=}\StringTok{"binomial"}\NormalTok{, }\AttributeTok{data=}\NormalTok{train)}
+\FunctionTok{summary}\NormalTok{(model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = death ~ gender + pregnant + diabetes + copd + asthma + 
+##     immunosup + hypertension + cardiovascular + obesity + renal_chronic + 
+##     tobacco + new_age, family = "binomial", data = train)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.3876  -0.3961  -0.2107  -0.1387   3.3210  
+## 
+## Coefficients:
+##                  Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)     -4.312361   0.057787 -74.626  < 2e-16 ***
+## gender1         -0.648665   0.007703 -84.207  < 2e-16 ***
+## pregnant1       -0.010161   0.119333  -0.085    0.932    
+## diabetes1        0.551486   0.008592  64.187  < 2e-16 ***
+## copd1            0.436656   0.021267  20.532  < 2e-16 ***
+## asthma1         -0.222535   0.027418  -8.116 4.80e-16 ***
+## immunosup1       0.571703   0.028290  20.209  < 2e-16 ***
+## hypertension1    0.314929   0.008481  37.133  < 2e-16 ***
+## cardiovascular1  0.106797   0.019565   5.459 4.80e-08 ***
+## obesity1         0.398728   0.009252  43.098  < 2e-16 ***
+## renal_chronic1   1.160111   0.019218  60.367  < 2e-16 ***
+## tobacco1        -0.086094   0.014258  -6.038 1.56e-09 ***
+## new_age2        -0.240754   0.061649  -3.905 9.41e-05 ***
+## new_age3         1.163888   0.058465  19.907  < 2e-16 ***
+## new_age4         2.455231   0.058126  42.240  < 2e-16 ***
+## new_age5         3.648835   0.058222  62.672  < 2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 658944  on 993231  degrees of freedom
+## Residual deviance: 494146  on 993216  degrees of freedom
+## AIC: 494178
+## 
+## Number of Fisher Scoring iterations: 7
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# feature importance}
+\NormalTok{x }\OtherTok{=}\NormalTok{ caret}\SpecialCharTok{::}\FunctionTok{varImp}\NormalTok{(model)}
+\FunctionTok{round}\NormalTok{(x,}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                 Overall
+## gender1          84.207
+## pregnant1         0.085
+## diabetes1        64.187
+## copd1            20.532
+## asthma1           8.116
+## immunosup1       20.209
+## hypertension1    37.133
+## cardiovascular1   5.459
+## obesity1         43.098
+## renal_chronic1   60.367
+## tobacco1          6.038
+## new_age2          3.905
+## new_age3         19.907
+## new_age4         42.240
+## new_age5         62.672
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#fit logistic regression model with icu column as outcome}
+\NormalTok{model2 }\OtherTok{\textless{}{-}} \FunctionTok{glm}\NormalTok{(ICU}\SpecialCharTok{\textasciitilde{}}\NormalTok{ gender }\SpecialCharTok{+}\NormalTok{ pregnant }\SpecialCharTok{+}\NormalTok{ diabetes }\SpecialCharTok{+}\NormalTok{ copd }\SpecialCharTok{+}\NormalTok{ asthma }\SpecialCharTok{+}\NormalTok{ immunosup }\SpecialCharTok{+}\NormalTok{ hypertension }\SpecialCharTok{+}\NormalTok{ cardiovascular}\SpecialCharTok{+} 
+\NormalTok{               obesity }\SpecialCharTok{+}\NormalTok{ renal\_chronic }\SpecialCharTok{+}\NormalTok{ tobacco  }\SpecialCharTok{+}\NormalTok{ new\_age , }\AttributeTok{family=}\StringTok{"binomial"}\NormalTok{, }\AttributeTok{data=}\NormalTok{train)}
+\FunctionTok{summary}\NormalTok{(model2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = ICU ~ gender + pregnant + diabetes + copd + asthma + 
+##     immunosup + hypertension + cardiovascular + obesity + renal_chronic + 
+##     tobacco + new_age, family = "binomial", data = train)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -0.8330  -0.2209  -0.1463  -0.0971   3.5361  
+## 
+## Coefficients:
+##                 Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)     -3.99827    0.04892 -81.729  < 2e-16 ***
+## gender1         -0.55995    0.01619 -34.578  < 2e-16 ***
+## pregnant1        1.86796    0.08530  21.898  < 2e-16 ***
+## diabetes1        0.43995    0.01826  24.097  < 2e-16 ***
+## copd1            0.15646    0.04409   3.549 0.000387 ***
+## asthma1         -0.07660    0.05371  -1.426 0.153801    
+## immunosup1       0.58942    0.05079  11.604  < 2e-16 ***
+## hypertension1    0.14470    0.01840   7.864 3.72e-15 ***
+## cardiovascular1  0.21231    0.03765   5.638 1.72e-08 ***
+## obesity1         0.58407    0.01784  32.746  < 2e-16 ***
+## renal_chronic1   0.13571    0.04078   3.328 0.000875 ***
+## tobacco1        -0.12374    0.02951  -4.194 2.75e-05 ***
+## new_age2        -1.56796    0.05947 -26.365  < 2e-16 ***
+## new_age3        -0.53366    0.05167 -10.327  < 2e-16 ***
+## new_age4         0.29709    0.05079   5.849 4.95e-09 ***
+## new_age5         0.85561    0.05156  16.594  < 2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 177235  on 993231  degrees of freedom
+## Residual deviance: 162048  on 993216  degrees of freedom
+## AIC: 162080
+## 
+## Number of Fisher Scoring iterations: 8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x2 }\OtherTok{=}\NormalTok{ caret}\SpecialCharTok{::}\FunctionTok{varImp}\NormalTok{(model2)}
+\FunctionTok{round}\NormalTok{(x2,}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                 Overall
+## gender1          34.578
+## pregnant1        21.898
+## diabetes1        24.097
+## copd1             3.549
+## asthma1           1.426
+## immunosup1       11.604
+## hypertension1     7.864
+## cardiovascular1   5.638
+## obesity1         32.746
+## renal_chronic1    3.328
+## tobacco1          4.194
+## new_age2         26.365
+## new_age3         10.327
+## new_age4          5.849
+## new_age5         16.594
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#fit logistic regression model with intubation column as outcome}
+\NormalTok{model3 }\OtherTok{\textless{}{-}} \FunctionTok{glm}\NormalTok{(intubation}\SpecialCharTok{\textasciitilde{}}\NormalTok{ gender }\SpecialCharTok{+}\NormalTok{ pregnant }\SpecialCharTok{+}\NormalTok{ diabetes }\SpecialCharTok{+}\NormalTok{ copd }\SpecialCharTok{+}\NormalTok{ asthma }\SpecialCharTok{+}\NormalTok{ immunosup }\SpecialCharTok{+}\NormalTok{ hypertension }\SpecialCharTok{+}\NormalTok{ cardiovascular}\SpecialCharTok{+} 
+\NormalTok{                obesity }\SpecialCharTok{+}\NormalTok{ renal\_chronic }\SpecialCharTok{+}\NormalTok{ tobacco  }\SpecialCharTok{+}\NormalTok{ new\_age , }\AttributeTok{family=}\StringTok{"binomial"}\NormalTok{, }\AttributeTok{data=}\NormalTok{train)}
+\FunctionTok{summary}\NormalTok{(model3)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = intubation ~ gender + pregnant + diabetes + copd + 
+##     asthma + immunosup + hypertension + cardiovascular + obesity + 
+##     renal_chronic + tobacco + new_age, family = "binomial", data = train)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.2086  -0.3073  -0.1827  -0.0972   3.4755  
+## 
+## Coefficients:
+##                 Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)     -4.32885    0.05769 -75.038  < 2e-16 ***
+## gender1         -0.57723    0.01220 -47.309  < 2e-16 ***
+## pregnant1        1.01871    0.10869   9.373  < 2e-16 ***
+## diabetes1        0.41348    0.01348  30.663  < 2e-16 ***
+## copd1            0.22740    0.03148   7.224 5.05e-13 ***
+## asthma1         -0.10685    0.04168  -2.563  0.01037 *  
+## immunosup1       0.53078    0.03944  13.459  < 2e-16 ***
+## hypertension1    0.24853    0.01349  18.425  < 2e-16 ***
+## cardiovascular1  0.09366    0.02867   3.267  0.00109 ** 
+## obesity1         0.46540    0.01378  33.770  < 2e-16 ***
+## renal_chronic1   0.44923    0.02743  16.376  < 2e-16 ***
+## tobacco1         0.01710    0.02121   0.806  0.42014    
+## new_age2        -1.02429    0.06555 -15.626  < 2e-16 ***
+## new_age3         0.24382    0.05927   4.114 3.90e-05 ***
+## new_age4         1.29954    0.05856  22.193  < 2e-16 ***
+## new_age5         1.95627    0.05887  33.231  < 2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 284885  on 993231  degrees of freedom
+## Residual deviance: 248754  on 993216  degrees of freedom
+## AIC: 248786
+## 
+## Number of Fisher Scoring iterations: 8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x3 }\OtherTok{=}\NormalTok{ caret}\SpecialCharTok{::}\FunctionTok{varImp}\NormalTok{(model3)}
+\FunctionTok{round}\NormalTok{(x3,}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                 Overall
+## gender1          47.309
+## pregnant1         9.373
+## diabetes1        30.663
+## copd1             7.224
+## asthma1           2.563
+## immunosup1       13.459
+## hypertension1    18.425
+## cardiovascular1   3.267
+## obesity1         33.770
+## renal_chronic1   16.376
+## tobacco1          0.806
+## new_age2         15.626
+## new_age3          4.114
+## new_age4         22.193
+## new_age5         33.231
+\end{verbatim}
+
+```
+
+\end{document}

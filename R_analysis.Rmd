@@ -1,0 +1,220 @@
+---
+title: "Covid19_StatisticalAnalysis"
+author: "Safaa Dorian"
+date: '2022-06-25'
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r}
+# Import the library
+library(dplyr)
+library(caret)
+```
+
+
+```{r}
+# Read the data
+df <- read.csv('clean_ml_data.csv',stringsAsFactors = F)
+head(df)
+```
+
+```{r}
+summary(df)
+```
+```{r}
+# transform type of columns from numerical to factors
+
+df$gender = as.factor(df$gender)
+df$new_age = as.factor(df$new_age)
+df$pregnant = as.factor(df$pregnant)
+df$diabetes = as.factor(df$diabetes)
+df$copd = as.factor(df$copd)
+df$asthma = as.factor(df$asthma)
+df$immunosup = as.factor(df$immunosup)
+df$hypertension = as.factor(df$hypertension)
+df$cardiovascular = as.factor(df$cardiovascular)
+df$obesity = as.factor(df$obesity)
+df$renal_chronic = as.factor(df$renal_chronic)
+df$tobacco = as.factor(df$tobacco)
+df$death = as.factor(df$death)
+df$intubation = as.factor(df$intubation)
+df$ICU = as.factor(df$ICU)
+
+summary(df)
+```
+## Chi-squared test
+```{r}
+# pregnancy risk
+pregnancy_death <- table(df$pregnant,df$death) #generate contingency table with death column
+chisq.test(pregnancy_death) #compare categorical distributions
+
+pregnancy_ICU <- table(df$pregnant,df$ICU) #generate contingency table with ICU column
+chisq.test(pregnancy_ICU)
+
+pregnancy_intubation <- table(df$pregnant,df$intubation) #generate contingency table with intubation column
+chisq.test(pregnancy_intubation)
+```
+```{r}
+# gender risk
+gender_death <- table(df$gender,df$death) #generate contingency table with death column
+chisq.test(gender_death) #compare categorical distributions
+
+gender_ICU <- table(df$gender,df$ICU) #generate contingency table with ICU column
+chisq.test(gender_ICU)
+
+gender_intubation <- table(df$gender,df$intubation) #generate contingency table with intubation column
+chisq.test(gender_intubation)
+```
+
+```{r}
+# diabetes risk
+diabetes_death <- table(df$diabetes,df$death) #generate contingency table with death column
+chisq.test(diabetes_death) #compare categorical distributions
+
+diabetes_ICU <- table(df$diabetes,df$ICU) #generate contingency table with ICU column
+chisq.test(diabetes_ICU)
+
+diabetes_intubation <- table(df$diabetes,df$intubation) #generate contingency table with intubation column
+chisq.test(diabetes_intubation)
+```
+```{r}
+# copd risk
+copd_death <- table(df$copd,df$death) #generate contingency table with death column
+chisq.test(copd_death) #compare categorical distributions
+
+copd_ICU <- table(df$copd,df$ICU) #generate contingency table with ICU column
+chisq.test(copd_ICU)
+
+copd_intubation <- table(df$copd,df$intubation) #generate contingency table with intubation column
+chisq.test(copd_intubation)
+```
+```{r}
+# asthma risk
+asthma_death <- table(df$asthma,df$death) #generate contingency table with death column
+chisq.test(asthma_death) #compare categorical distributions
+
+asthma_ICU <- table(df$asthma,df$ICU) #generate contingency table with ICU column
+chisq.test(asthma_ICU)
+
+asthma_intubation <- table(df$asthma,df$intubation) #generate contingency table with intubation column
+chisq.test(asthma_intubation)
+```
+```{r}
+# immunosup risk
+immunosup_death <- table(df$immunosup,df$death) #generate contingency table with death column
+chisq.test(immunosup_death) #compare categorical distributions
+
+immunosup_ICU <- table(df$immunosup,df$ICU) #generate contingency table with ICU column
+chisq.test(immunosup_ICU)
+
+immunosup_intubation <- table(df$immunosup,df$intubation) #generate contingency table with intubation column
+chisq.test(immunosup_intubation)
+```
+```{r}
+# hypertension risk
+hypertension_death <- table(df$hypertension,df$death) #generate contingency table with death column
+chisq.test(hypertension_death) #compare categorical distributions
+
+hypertension_ICU <- table(df$hypertension,df$ICU) #generate contingency table with ICU column
+chisq.test(hypertension_ICU)
+
+hypertension_intubation <- table(df$hypertension,df$intubation) #generate contingency table with intubation column
+chisq.test(hypertension_intubation)
+```
+```{r}
+# cardiovascular risk
+cardiovascular_death <- table(df$cardiovascular,df$death) #generate contingency table with death column
+chisq.test(cardiovascular_death) #compare categorical distributions
+
+cardiovascular_ICU <- table(df$cardiovascular,df$ICU) #generate contingency table with ICU column
+chisq.test(cardiovascular_ICU)
+
+cardiovascular_intubation <- table(df$cardiovascular,df$intubation) #generate contingency table with intubation column
+chisq.test(cardiovascular_intubation)
+```
+```{r}
+# obesity risk
+obesity_death <- table(df$obesity,df$death) #generate contingency table with death column
+chisq.test(obesity_death) #compare categorical distributions
+
+obesity_ICU <- table(df$obesity,df$ICU) #generate contingency table with ICU column
+chisq.test(obesity_ICU)
+
+obesity_intubation <- table(df$obesity,df$intubation) #generate contingency table with intubation column
+chisq.test(obesity_intubation)
+```
+```{r}
+# renal_chronic risk
+renal_chronic_death <- table(df$renal_chronic,df$death) #generate contingency table with death column
+chisq.test(renal_chronic_death) #compare categorical distributions
+
+renal_chronic_ICU <- table(df$renal_chronic,df$ICU) #generate contingency table with ICU column
+chisq.test(renal_chronic_ICU)
+
+renal_chronic_intubation <- table(df$renal_chronic,df$intubation) #generate contingency table with intubation column
+chisq.test(renal_chronic_intubation)
+```
+```{r}
+# tobacco risk
+tobacco_death <- table(df$tobacco,df$death) #generate contingency table with death column
+chisq.test(tobacco_death) #compare categorical distributions
+
+tobacco_ICU <- table(df$tobacco,df$ICU) #generate contingency table with ICU column
+chisq.test(tobacco_ICU)
+
+tobacco_intubation <- table(df$tobacco,df$intubation) #generate contingency table with intubation column
+chisq.test(tobacco_intubation)
+```
+
+## Logistic Regression to check the features significance
+
+```{r}
+#make the model reproducible
+set.seed(1)
+
+#Use 70% of dataset as training set and remaining 30% as testing set
+sample <- sample(c(TRUE, FALSE), nrow(df), replace=TRUE, prob=c(0.7,0.3))
+train <- df[sample, ]
+test <- df[!sample, ] 
+```
+
+```{r}
+#fit logistic regression model with death column as outcome
+model <- glm(death~ gender+ pregnant + diabetes + copd + asthma + immunosup + hypertension + cardiovascular+ 
+               obesity + renal_chronic + tobacco  + new_age , family="binomial", data=train)
+summary(model)
+```
+
+```{r}
+# feature importance
+x = caret::varImp(model)
+round(x,3)
+```
+
+```{r}
+#fit logistic regression model with icu column as outcome
+model2 <- glm(ICU~ gender + pregnant + diabetes + copd + asthma + immunosup + hypertension + cardiovascular+ 
+               obesity + renal_chronic + tobacco  + new_age , family="binomial", data=train)
+summary(model2)
+```
+
+```{r}
+x2 = caret::varImp(model2)
+round(x2,3)
+```
+
+```{r}
+#fit logistic regression model with intubation column as outcome
+model3 <- glm(intubation~ gender + pregnant + diabetes + copd + asthma + immunosup + hypertension + cardiovascular+ 
+                obesity + renal_chronic + tobacco  + new_age , family="binomial", data=train)
+summary(model3)
+```
+
+```{r}
+x3 = caret::varImp(model3)
+round(x3,3)
+```
+```

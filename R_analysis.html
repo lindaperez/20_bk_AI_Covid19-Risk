@@ -433,7 +433,6 @@ head(df)</code></pre>
 
 df$gender = as.factor(df$gender)
 df$new_age = as.factor(df$new_age)
-df$pneumonia = as.factor(df$pneumonia)
 df$pregnant = as.factor(df$pregnant)
 df$diabetes = as.factor(df$diabetes)
 df$copd = as.factor(df$copd)
@@ -449,15 +448,17 @@ df$intubation = as.factor(df$intubation)
 df$ICU = as.factor(df$ICU)
 
 summary(df)</code></pre>
-<pre><code>##  gender     pneumonia   pregnant    diabetes    copd        asthma     
-##  0:716505   0:1192767   0:1408374   0:1217403   0:1400255   0:1383639  
-##  1:701186   1: 224924   1:   9317   1: 200288   1:  17436   1:  34052  
-##                                                                        
-##                                                                        
-##                                                                        
+<pre><code>##  gender       pneumonia      pregnant    diabetes    copd        asthma     
+##  0:716505   Min.   :0.0000   0:1408374   0:1217403   0:1400255   0:1383639  
+##  1:701186   1st Qu.:0.0000   1:   9317   1: 200288   1:  17436   1:  34052  
+##             Median :0.0000                                                  
+##             Mean   :0.1587                                                  
+##             3rd Qu.:0.0000                                                  
+##             Max.   :1.0000                                                  
 ##  immunosup   hypertension cardiovascular obesity     renal_chronic tobacco    
 ##  0:1404258   0:1160635    0:1393243      0:1192568   0:1393994     0:1311352  
 ##  1:  13433   1: 257056    1:  24448      1: 225123   1:  23697     1: 106339  
+##                                                                               
 ##                                                                               
 ##                                                                               
 ##                                                                               
@@ -466,7 +467,8 @@ summary(df)</code></pre>
 ##  1: 146332   1:  46039   1:  25112   2:361389  
 ##                                      3:480422  
 ##                                      4:357949  
-##                                      5:177045</code></pre>
+##                                      5:177045  
+## </code></pre>
 <div id="chi-squared-test" class="section level2">
 <h2>Chi-squared test</h2>
 <pre class="r"><code># pregnancy risk
@@ -513,28 +515,6 @@ chisq.test(gender_intubation)</code></pre>
 ## 
 ## data:  gender_intubation
 ## X-squared = 3713.5, df = 1, p-value &lt; 2.2e-16</code></pre>
-<pre class="r"><code># pneumonia risk
-pneumonia_death &lt;- table(df$pneumonia,df$death) #generate contingency table with death column
-chisq.test(pneumonia_death) #compare categorical distributions</code></pre>
-<pre><code>## 
-##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
-## 
-## data:  pneumonia_death
-## X-squared = 393699, df = 1, p-value &lt; 2.2e-16</code></pre>
-<pre class="r"><code>pneumonia_ICU &lt;- table(df$pneumonia,df$ICU) #generate contingency table with ICU column
-chisq.test(pneumonia_ICU)</code></pre>
-<pre><code>## 
-##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
-## 
-## data:  pneumonia_ICU
-## X-squared = 97303, df = 1, p-value &lt; 2.2e-16</code></pre>
-<pre class="r"><code>pneumonia_intubation &lt;- table(df$pneumonia,df$intubation) #generate contingency table with intubation column
-chisq.test(pneumonia_intubation)</code></pre>
-<pre><code>## 
-##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
-## 
-## data:  pneumonia_intubation
-## X-squared = 158699, df = 1, p-value &lt; 2.2e-16</code></pre>
 <pre class="r"><code># diabetes risk
 diabetes_death &lt;- table(df$diabetes,df$death) #generate contingency table with death column
 chisq.test(diabetes_death) #compare categorical distributions</code></pre>
@@ -744,195 +724,186 @@ sample &lt;- sample(c(TRUE, FALSE), nrow(df), replace=TRUE, prob=c(0.7,0.3))
 train &lt;- df[sample, ]
 test &lt;- df[!sample, ] </code></pre>
 <pre class="r"><code>#fit logistic regression model with death column as outcome
-model &lt;- glm(death~ gender  + pneumonia + pregnant + diabetes + copd + asthma + immunosup + hypertension + cardiovascular+ 
+model &lt;- glm(death~ gender+ pregnant + diabetes + copd + asthma + immunosup + hypertension + cardiovascular+ 
                obesity + renal_chronic + tobacco  + new_age , family=&quot;binomial&quot;, data=train)
 summary(model)</code></pre>
 <pre><code>## 
 ## Call:
-## glm(formula = death ~ gender + pneumonia + pregnant + diabetes + 
-##     copd + asthma + immunosup + hypertension + cardiovascular + 
-##     obesity + renal_chronic + tobacco + new_age, family = &quot;binomial&quot;, 
-##     data = train)
+## glm(formula = death ~ gender + pregnant + diabetes + copd + asthma + 
+##     immunosup + hypertension + cardiovascular + obesity + renal_chronic + 
+##     tobacco + new_age, family = &quot;binomial&quot;, data = train)
 ## 
 ## Deviance Residuals: 
 ##     Min       1Q   Median       3Q      Max  
-## -2.5649  -0.3104  -0.1770  -0.1077   3.4190  
+## -2.3876  -0.3961  -0.2107  -0.1387   3.3210  
 ## 
 ## Coefficients:
 ##                  Estimate Std. Error z value Pr(&gt;|z|)    
-## (Intercept)     -4.765327   0.058869 -80.947  &lt; 2e-16 ***
-## gender1         -0.506296   0.008745 -57.895  &lt; 2e-16 ***
-## pneumonia1       2.598719   0.008520 305.028  &lt; 2e-16 ***
-## pregnant1       -0.175320   0.121484  -1.443   0.1490    
-## diabetes1        0.368457   0.009806  37.574  &lt; 2e-16 ***
-## copd1            0.300432   0.024495  12.265  &lt; 2e-16 ***
-## asthma1         -0.189303   0.030530  -6.201 5.63e-10 ***
-## immunosup1       0.385857   0.031541  12.233  &lt; 2e-16 ***
-## hypertension1    0.253043   0.009697  26.095  &lt; 2e-16 ***
-## cardiovascular1  0.038416   0.022492   1.708   0.0876 .  
-## obesity1         0.257908   0.010470  24.633  &lt; 2e-16 ***
-## renal_chronic1   1.042593   0.021484  48.529  &lt; 2e-16 ***
-## tobacco1        -0.136388   0.016242  -8.397  &lt; 2e-16 ***
-## new_age2        -0.244596   0.062693  -3.901 9.56e-05 ***
-## new_age3         0.864726   0.059546  14.522  &lt; 2e-16 ***
-## new_age4         1.894347   0.059225  31.985  &lt; 2e-16 ***
-## new_age5         2.907682   0.059373  48.973  &lt; 2e-16 ***
+## (Intercept)     -4.312361   0.057787 -74.626  &lt; 2e-16 ***
+## gender1         -0.648665   0.007703 -84.207  &lt; 2e-16 ***
+## pregnant1       -0.010161   0.119333  -0.085    0.932    
+## diabetes1        0.551486   0.008592  64.187  &lt; 2e-16 ***
+## copd1            0.436656   0.021267  20.532  &lt; 2e-16 ***
+## asthma1         -0.222535   0.027418  -8.116 4.80e-16 ***
+## immunosup1       0.571703   0.028290  20.209  &lt; 2e-16 ***
+## hypertension1    0.314929   0.008481  37.133  &lt; 2e-16 ***
+## cardiovascular1  0.106797   0.019565   5.459 4.80e-08 ***
+## obesity1         0.398728   0.009252  43.098  &lt; 2e-16 ***
+## renal_chronic1   1.160111   0.019218  60.367  &lt; 2e-16 ***
+## tobacco1        -0.086094   0.014258  -6.038 1.56e-09 ***
+## new_age2        -0.240754   0.061649  -3.905 9.41e-05 ***
+## new_age3         1.163888   0.058465  19.907  &lt; 2e-16 ***
+## new_age4         2.455231   0.058126  42.240  &lt; 2e-16 ***
+## new_age5         3.648835   0.058222  62.672  &lt; 2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
 ##     Null deviance: 658944  on 993231  degrees of freedom
-## Residual deviance: 391539  on 993215  degrees of freedom
-## AIC: 391573
+## Residual deviance: 494146  on 993216  degrees of freedom
+## AIC: 494178
 ## 
 ## Number of Fisher Scoring iterations: 7</code></pre>
 <pre class="r"><code># feature importance
 x = caret::varImp(model)
 round(x,3)</code></pre>
 <pre><code>##                 Overall
-## gender1          57.895
-## pneumonia1      305.028
-## pregnant1         1.443
-## diabetes1        37.574
-## copd1            12.265
-## asthma1           6.201
-## immunosup1       12.233
-## hypertension1    26.095
-## cardiovascular1   1.708
-## obesity1         24.633
-## renal_chronic1   48.529
-## tobacco1          8.397
-## new_age2          3.901
-## new_age3         14.522
-## new_age4         31.985
-## new_age5         48.973</code></pre>
+## gender1          84.207
+## pregnant1         0.085
+## diabetes1        64.187
+## copd1            20.532
+## asthma1           8.116
+## immunosup1       20.209
+## hypertension1    37.133
+## cardiovascular1   5.459
+## obesity1         43.098
+## renal_chronic1   60.367
+## tobacco1          6.038
+## new_age2          3.905
+## new_age3         19.907
+## new_age4         42.240
+## new_age5         62.672</code></pre>
 <pre class="r"><code>#fit logistic regression model with icu column as outcome
-model2 &lt;- glm(ICU~ gender  + pneumonia + pregnant + diabetes + copd + asthma + immunosup + hypertension + cardiovascular+ 
+model2 &lt;- glm(ICU~ gender + pregnant + diabetes + copd + asthma + immunosup + hypertension + cardiovascular+ 
                obesity + renal_chronic + tobacco  + new_age , family=&quot;binomial&quot;, data=train)
 summary(model2)</code></pre>
 <pre><code>## 
 ## Call:
-## glm(formula = ICU ~ gender + pneumonia + pregnant + diabetes + 
-##     copd + asthma + immunosup + hypertension + cardiovascular + 
-##     obesity + renal_chronic + tobacco + new_age, family = &quot;binomial&quot;, 
-##     data = train)
+## glm(formula = ICU ~ gender + pregnant + diabetes + copd + asthma + 
+##     immunosup + hypertension + cardiovascular + obesity + renal_chronic + 
+##     tobacco + new_age, family = &quot;binomial&quot;, data = train)
 ## 
 ## Deviance Residuals: 
 ##     Min       1Q   Median       3Q      Max  
-## -1.1744  -0.0872  -0.0727  -0.0596   3.7080  
+## -0.8330  -0.2209  -0.1463  -0.0971   3.5361  
 ## 
 ## Coefficients:
-##                  Estimate Std. Error z value Pr(&gt;|z|)    
-## (Intercept)     -4.819902   0.053015 -90.915  &lt; 2e-16 ***
-## gender1         -0.274692   0.016780 -16.370  &lt; 2e-16 ***
-## pneumonia1       3.457320   0.024394 141.729  &lt; 2e-16 ***
-## pregnant1        1.630286   0.091519  17.814  &lt; 2e-16 ***
-## diabetes1        0.127567   0.018412   6.929 4.25e-12 ***
-## copd1           -0.031492   0.044732  -0.704 0.481420    
-## asthma1         -0.010256   0.055199  -0.186 0.852606    
-## immunosup1       0.281830   0.051962   5.424 5.83e-08 ***
-## hypertension1    0.007575   0.018596   0.407 0.683755    
-## cardiovascular1  0.146379   0.038421   3.810 0.000139 ***
-## obesity1         0.363925   0.018374  19.807  &lt; 2e-16 ***
-## renal_chronic1  -0.181887   0.041071  -4.429 9.49e-06 ***
-## tobacco1        -0.129796   0.030292  -4.285 1.83e-05 ***
-## new_age2        -1.649221   0.062075 -26.568  &lt; 2e-16 ***
-## new_age3        -1.115634   0.054690 -20.399  &lt; 2e-16 ***
-## new_age4        -0.840205   0.054162 -15.513  &lt; 2e-16 ***
-## new_age5        -0.751864   0.054920 -13.690  &lt; 2e-16 ***
+##                 Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)     -3.99827    0.04892 -81.729  &lt; 2e-16 ***
+## gender1         -0.55995    0.01619 -34.578  &lt; 2e-16 ***
+## pregnant1        1.86796    0.08530  21.898  &lt; 2e-16 ***
+## diabetes1        0.43995    0.01826  24.097  &lt; 2e-16 ***
+## copd1            0.15646    0.04409   3.549 0.000387 ***
+## asthma1         -0.07660    0.05371  -1.426 0.153801    
+## immunosup1       0.58942    0.05079  11.604  &lt; 2e-16 ***
+## hypertension1    0.14470    0.01840   7.864 3.72e-15 ***
+## cardiovascular1  0.21231    0.03765   5.638 1.72e-08 ***
+## obesity1         0.58407    0.01784  32.746  &lt; 2e-16 ***
+## renal_chronic1   0.13571    0.04078   3.328 0.000875 ***
+## tobacco1        -0.12374    0.02951  -4.194 2.75e-05 ***
+## new_age2        -1.56796    0.05947 -26.365  &lt; 2e-16 ***
+## new_age3        -0.53366    0.05167 -10.327  &lt; 2e-16 ***
+## new_age4         0.29709    0.05079   5.849 4.95e-09 ***
+## new_age5         0.85561    0.05156  16.594  &lt; 2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
 ##     Null deviance: 177235  on 993231  degrees of freedom
-## Residual deviance: 129891  on 993215  degrees of freedom
-## AIC: 129925
+## Residual deviance: 162048  on 993216  degrees of freedom
+## AIC: 162080
 ## 
 ## Number of Fisher Scoring iterations: 8</code></pre>
 <pre class="r"><code>x2 = caret::varImp(model2)
 round(x2,3)</code></pre>
 <pre><code>##                 Overall
-## gender1          16.370
-## pneumonia1      141.729
-## pregnant1        17.814
-## diabetes1         6.929
-## copd1             0.704
-## asthma1           0.186
-## immunosup1        5.424
-## hypertension1     0.407
-## cardiovascular1   3.810
-## obesity1         19.807
-## renal_chronic1    4.429
-## tobacco1          4.285
-## new_age2         26.568
-## new_age3         20.399
-## new_age4         15.513
-## new_age5         13.690</code></pre>
+## gender1          34.578
+## pregnant1        21.898
+## diabetes1        24.097
+## copd1             3.549
+## asthma1           1.426
+## immunosup1       11.604
+## hypertension1     7.864
+## cardiovascular1   5.638
+## obesity1         32.746
+## renal_chronic1    3.328
+## tobacco1          4.194
+## new_age2         26.365
+## new_age3         10.327
+## new_age4          5.849
+## new_age5         16.594</code></pre>
 <pre class="r"><code>#fit logistic regression model with intubation column as outcome
-model3 &lt;- glm(intubation~ gender  + pneumonia + pregnant + diabetes + copd + asthma + immunosup + hypertension + cardiovascular+ 
+model3 &lt;- glm(intubation~ gender + pregnant + diabetes + copd + asthma + immunosup + hypertension + cardiovascular+ 
                 obesity + renal_chronic + tobacco  + new_age , family=&quot;binomial&quot;, data=train)
 summary(model3)</code></pre>
 <pre><code>## 
 ## Call:
-## glm(formula = intubation ~ gender + pneumonia + pregnant + diabetes + 
-##     copd + asthma + immunosup + hypertension + cardiovascular + 
-##     obesity + renal_chronic + tobacco + new_age, family = &quot;binomial&quot;, 
-##     data = train)
+## glm(formula = intubation ~ gender + pregnant + diabetes + copd + 
+##     asthma + immunosup + hypertension + cardiovascular + obesity + 
+##     renal_chronic + tobacco + new_age, family = &quot;binomial&quot;, data = train)
 ## 
 ## Deviance Residuals: 
 ##     Min       1Q   Median       3Q      Max  
-## -1.0880  -0.1504  -0.1113  -0.0721   3.5601  
+## -1.2086  -0.3073  -0.1827  -0.0972   3.4755  
 ## 
 ## Coefficients:
-##                  Estimate Std. Error z value Pr(&gt;|z|)    
-## (Intercept)     -4.916847   0.059364 -82.825  &lt; 2e-16 ***
-## gender1         -0.338492   0.012853 -26.335  &lt; 2e-16 ***
-## pneumonia1       2.899283   0.015935 181.946  &lt; 2e-16 ***
-## pregnant1        0.790284   0.112002   7.056 1.71e-12 ***
-## diabetes1        0.146395   0.013996  10.460  &lt; 2e-16 ***
-## copd1            0.052298   0.032707   1.599   0.1098    
-## asthma1         -0.039898   0.043429  -0.919   0.3583    
-## immunosup1       0.302159   0.041007   7.369 1.73e-13 ***
-## hypertension1    0.134339   0.014006   9.592  &lt; 2e-16 ***
-## cardiovascular1  0.033028   0.029892   1.105   0.2692    
-## obesity1         0.285308   0.014468  19.720  &lt; 2e-16 ***
-## renal_chronic1   0.170784   0.028387   6.016 1.78e-09 ***
-## tobacco1         0.006578   0.022267   0.295   0.7677    
-## new_age2        -1.040161   0.066815 -15.568  &lt; 2e-16 ***
-## new_age3        -0.164904   0.060707  -2.716   0.0066 ** 
-## new_age4         0.440718   0.060158   7.326 2.37e-13 ***
-## new_age5         0.672691   0.060556  11.109  &lt; 2e-16 ***
+##                 Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)     -4.32885    0.05769 -75.038  &lt; 2e-16 ***
+## gender1         -0.57723    0.01220 -47.309  &lt; 2e-16 ***
+## pregnant1        1.01871    0.10869   9.373  &lt; 2e-16 ***
+## diabetes1        0.41348    0.01348  30.663  &lt; 2e-16 ***
+## copd1            0.22740    0.03148   7.224 5.05e-13 ***
+## asthma1         -0.10685    0.04168  -2.563  0.01037 *  
+## immunosup1       0.53078    0.03944  13.459  &lt; 2e-16 ***
+## hypertension1    0.24853    0.01349  18.425  &lt; 2e-16 ***
+## cardiovascular1  0.09366    0.02867   3.267  0.00109 ** 
+## obesity1         0.46540    0.01378  33.770  &lt; 2e-16 ***
+## renal_chronic1   0.44923    0.02743  16.376  &lt; 2e-16 ***
+## tobacco1         0.01710    0.02121   0.806  0.42014    
+## new_age2        -1.02429    0.06555 -15.626  &lt; 2e-16 ***
+## new_age3         0.24382    0.05927   4.114 3.90e-05 ***
+## new_age4         1.29954    0.05856  22.193  &lt; 2e-16 ***
+## new_age5         1.95627    0.05887  33.231  &lt; 2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
 ##     Null deviance: 284885  on 993231  degrees of freedom
-## Residual deviance: 203566  on 993215  degrees of freedom
-## AIC: 203600
+## Residual deviance: 248754  on 993216  degrees of freedom
+## AIC: 248786
 ## 
 ## Number of Fisher Scoring iterations: 8</code></pre>
 <pre class="r"><code>x3 = caret::varImp(model3)
 round(x3,3)</code></pre>
 <pre><code>##                 Overall
-## gender1          26.335
-## pneumonia1      181.946
-## pregnant1         7.056
-## diabetes1        10.460
-## copd1             1.599
-## asthma1           0.919
-## immunosup1        7.369
-## hypertension1     9.592
-## cardiovascular1   1.105
-## obesity1         19.720
-## renal_chronic1    6.016
-## tobacco1          0.295
-## new_age2         15.568
-## new_age3          2.716
-## new_age4          7.326
-## new_age5         11.109</code></pre>
+## gender1          47.309
+## pregnant1         9.373
+## diabetes1        30.663
+## copd1             7.224
+## asthma1           2.563
+## immunosup1       13.459
+## hypertension1    18.425
+## cardiovascular1   3.267
+## obesity1         33.770
+## renal_chronic1   16.376
+## tobacco1          0.806
+## new_age2         15.626
+## new_age3          4.114
+## new_age4         22.193
+## new_age5         33.231</code></pre>
 <p>```</p>
 </div>
 
