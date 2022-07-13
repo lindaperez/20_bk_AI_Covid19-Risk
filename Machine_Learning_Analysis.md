@@ -3,12 +3,15 @@
 ## Overview and Purpose 
 
 As Mexico is listed in the top 5 countries with the most COVID death rate , we are going to look into the factors that may be significantly relevant to death, based on which we would like to classify the high risks group and the low risk groups in face with COVID. 
+
 <br>At the end of the analysis, we are planning to use the machine learning model to provide the initial screening of the patients who are infected with COVID, and classify them into high risk or low risk group for further diagnosis and treatment. 
 
 ## Hypothesis and Data Preprocessing  
 
 Data Source of this Machine Learning Analysis: COVID patient data released by [**Mexico Government**](https://datosabiertos.salud.gob.mx/gobmx/salud/datos_abiertos/datos_abiertos_covid19.zip), which includes basic info of patients, as well as the status of underlying medical conditions, hospitalization status and deceased info. The main analysis is based on 3.5 million rows of data, a sample of the full database. 
+
 <br> The hypothesis is that, patients who have medical underlying conditions are more likely to run into severe situation, even death from COVID infection, and are supposed to be classified as high risk group of COVID. 
+
 <br>A glance of columns, data types and initial data preprocessing decision as follows: 
 
 ![data_and_preprocessing](./Image/data_and_preprocessing.png) 
@@ -85,7 +88,6 @@ After data preprocessing and preliminary feature engineering, we are ready to fi
 ### Initial Cross Validation and Metrics  
 
 Based on the listed models above, we did 2 different kinds of cross validation - <strong>K fold and StratifiedKFold</strong> using a sample of the entire dataset (30,000 rows of data). 
-
 <br> Here's an overview of the K-fold(n_splits=10) cross validation results showing the <strong>recall</strong> of different models with different resampling methods:  
 
 ![CV_Resampling_Comparison](./Image/CV_Resampling_Comparison.png) 
@@ -136,10 +138,10 @@ After cross validation and test data validation on the Machine Learning and Deep
 - Widely used in Healthcare industry for disease prediction based on medical history 
 
 ### Full dataset validation
-<br> Finally, we ran the full datasets(more than 1.4 million rows of data) into the Balanced Random Forest Classifier, and got the <strong>88% of recall and 86.57% of the balanced accuracy score in 1 min</strong>. 
+Finally, we ran the full datasets(more than 1.4 million rows of data) into the Balanced Random Forest Classifier, and got the <strong>88% of recall and 86.57% of the balanced accuracy score in 1 min</strong>. 
 
 ### Feature importances 
-<br> The feature importance from the Balanced Random Forest Classifier shows below, which aligns with our statistical analysis using R in preliminary feature engineering. 
+The feature importance from the Balanced Random Forest Classifier shows below, which aligns with our statistical analysis using R in preliminary feature engineering. 
 
 ![brfc_feature_importances](./Image/brfc_feature_importances.png) 
 
