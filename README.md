@@ -1,7 +1,11 @@
 # Project COVID-19
 Exploratory and predictive analysis over Covid-19 in Mexico
 
-Google slides:- https://docs.google.com/presentation/d/1yWZlWuGSaTPao9K6TRlcCLMK5A-ppxela27NbQfRnsU/edit#slide=id.p
+Links:-
+
+* Tableau Public Link:- https://public.tableau.com/app/profile/malvika4793
+* Google slides:- https://docs.google.com/presentation/d/1yWZlWuGSaTPao9K6TRlcCLMK5A-ppxela27NbQfRnsU/edit#slide=id.p
+* Deployment Web application:- https://lperez-covid-deployment.herokuapp.com/register
 
 ## Overview
 Corona Virus Infection Disease (COVID-19) is a virus which was discovered recently that causes severe resipratory illness in various individuals since the last two years. It was then termed as a pandemic as it started spreading rapidly around the world when the world was unprepared. This ended in affecting the humanity by overwhelming the healthcare systems and also causing a severe economic crisis. In order to avoid the crisis of a pandemic it is good to be prepared and to mitigate the effects. As a part of the measures to avoid the unpreparedness it is good to find high risk and low risk patients thereby allocating the necessary healthcare priorites helping to reduce the load on the healthcare workers and economic crisis.
@@ -24,7 +28,7 @@ To develop a machine learning model in Python to analyze what has been its impac
 
 ## Dataset to use:
 * Mexico Confirmed Case_Death <https://cdmx.dash.covid19.geoint.mx/#DownZCSV>
-* Mexico Vaccination Data <https://github.com/owid/covid-19-data/tree/master/public/data/vaccinations>
+* Mexico Visualization Dataset: <https://covid.ourworldindata.org/data/owid-covid-data.csv>
 * Mexico Demographic Data <https://datosabiertos.salud.gob.mx/gobmx/salud/datos_abiertos/datos_abiertos_covid19.zip>
 
 ## Communication protocol
