@@ -3,19 +3,15 @@
 ## Overview and Purpose 
 
 As Mexico is listed in the top 5 countries with the most COVID death rate , we are going to look into the factors that may be significantly relevant to death, based on which we would like to classify the high risks group and the low risk groups in face with COVID. 
-
 <br>At the end of the analysis, we are planning to use the machine learning model to provide the initial screening of the patients who are infected with COVID, and classify them into high risk or low risk group for further diagnosis and treatment. 
 
 ## Hypothesis and Data Preprocessing  
 
-<br>Data Source of this Machine Learning Analysis: COVID patient data released by [**Mexico Government**](https://datosabiertos.salud.gob.mx/gobmx/salud/datos_abiertos/datos_abiertos_covid19.zip), which includes basic info of patients, as well as the status of underlying medical conditions, hospitalization status and deceased info. The main analysis is based on 3.5 million rows of data, a sample of the full database. 
-
+Data Source of this Machine Learning Analysis: COVID patient data released by [**Mexico Government**](https://datosabiertos.salud.gob.mx/gobmx/salud/datos_abiertos/datos_abiertos_covid19.zip), which includes basic info of patients, as well as the status of underlying medical conditions, hospitalization status and deceased info. The main analysis is based on 3.5 million rows of data, a sample of the full database. 
 <br> The hypothesis is that, patients who have medical underlying conditions are more likely to run into severe situation, even death from COVID infection, and are supposed to be classified as high risk group of COVID. 
-
 <br>A glance of columns, data types and initial data preprocessing decision as follows: 
 
 ![data_and_preprocessing](./Image/data_and_preprocessing.png) 
-
 
 <br>As the end goal is to create a Machine Learning model and make predications of high/low risk groups of COVID, we are going to focus on the data:  
 
@@ -68,9 +64,7 @@ Despite removing the irrelevant features, the performance of our final model is 
 ## Machine Learning Analysis 
 
 After data preprocessing and preliminary feature engineering, we are ready to fit the data into the machine learning models.  
-
 <br> As we figure, the class of '1' accounts for only 11% of the entire dataset, we are focusing on the techniques and models that can handle the impact of the imbalanced dataset well. 
-
 <br> Here's the scope of the machine learning analysis: 
 
 - Targets: ['DEATH'] 
@@ -86,7 +80,6 @@ After data preprocessing and preliminary feature engineering, we are ready to fi
     - Easy Ensemble Classifier 
 
 <br> To address the imbalanced distribution of the '1' class, we evaluated the models with different <strong>resampling techniques</strong>: SMOTE, SMOTEENN, Undersampling, in mind to boost the model performance.  
-
 <br> Given the use case of the project, we would rather be more aggressive in classifying patients rather than miss any potential high risk patients. So Recall of the high risk class is the metrics we are focusing on.   
 
 ### Initial Cross Validation and Metrics  
@@ -104,17 +97,14 @@ Based on the listed models above, we did 2 different kinds of cross validation -
 ### Further Validation using StratifiedKFold and Test Datasets 
 
 Furthermore, we increased the sample data to 50,000 rows, and used StratifiedKFold(n_splits = 5) validation and test datasets (25% of the sample data) across all 7 models with both SMOTE and Undersampling, calculating balanced accuracy score, recall, F1,etc. 
-
 <br>Here's the result of StratifiedKFold CV with SMOTE: 
 
 ![StratifiedKFold_SMOTE](./Image/StratifiedKFold_SMOTE.png) 
-
 <br>Here's the result of StratifiedKFold CV with Undersampling: 
 
 ![StratifiedKFold_Undersampling](./Image/StratifiedKFold_Undersampling.png) 
 
 <br> As we split the sample dataset with 75% training data and 25% test data. We evaluated the model prediction using the test data and calculated the same metrics.  
-
 <br>Here's the result of test data validation with SMOTE: 
 
 ![Test_Data_Validation_SMOTE](./Image/Test_Data_Validation_SMOTE.png) 
@@ -128,18 +118,15 @@ Furthermore, we increased the sample data to 50,000 rows, and used StratifiedKFo
 ### Other experiments 
 
 <br> We also looked into the deep learning, and built the model with 2 hidden layers, and relu activation function. Comparing SMOTE and Undersampling techniques, we tested 50,000 rows of sample data and calculated accuracy score, TruePostivies, FalseNegatives and Recall.  
-
 <br> Here's the result with SMOTE: 
 
 ![DL_SMOTE](./Image/DL_SMOTE.png) 
-
 <br> Here's the result with Undersampling: 
 
 ![DL_Undersampling](./Image/DL_Undersampling.png) 
-
 <br> The result stays similar as the rest of the models. 
 
-### Conclusion 
+## Conclusion 
 
 After cross validation and test data validation on the Machine Learning and Deep Learning models, we decided to use Balanced Random Forest as the prediction model, with following considerations: 
 
@@ -148,17 +135,15 @@ After cross validation and test data validation on the Machine Learning and Deep
 - Aggregation of Trees fit by randomly bootstrap samples with undersampling minimizes the variance of the model, so it stays stable across the board 
 - Widely used in Healthcare industry for disease prediction based on medical history 
 
-* Full dataset validation 
-
+### Full dataset validation
 <br> Finally, we ran the full datasets(more than 1.4 million rows of data) into the Balanced Random Forest Classifier, and got the <strong>88% of recall and 86.57% of the balanced accuracy score in 1 min</strong>. 
 
-* Feature importances 
-
+### Feature importances 
 <br> The feature importance from the Balanced Random Forest Classifier shows below, which aligns with our statistical analysis using R in preliminary feature engineering. 
 
 ![brfc_feature_importances](./Image/brfc_feature_importances.png) 
 
-* Limitation and future analysis 
+### Limitation and future analysis
 
 - Computational Efficiency
 <br> Even though Balanced Random Forest is powerful handling imbalanced dataset, it may not be the most computational efficient model. Considering we are going to fit 16 million rows of data from the entire database, and the number will grow even bigger, we will need to further evaluate the time of processing each model, as well as the storage space each model requires.
