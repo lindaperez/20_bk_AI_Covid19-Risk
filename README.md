@@ -28,7 +28,7 @@ To develop a machine learning model in Python to analyze what has been its impac
 
 ## Dataset to use:
 * Mexico Confirmed Case_Death <https://cdmx.dash.covid19.geoint.mx/#DownZCSV>
-* Mexico Vaccination Data <https://github.com/owid/covid-19-data/tree/master/public/data/vaccinations>
+* Mexico Visualization Dataset: <https://covid.ourworldindata.org/data/owid-covid-data.csv>
 * Mexico Demographic Data <https://datosabiertos.salud.gob.mx/gobmx/salud/datos_abiertos/datos_abiertos_covid19.zip>
 
 ## Communication protocol
