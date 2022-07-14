@@ -140,6 +140,8 @@ After cross validation and test data validation on the Machine Learning and Deep
 ### Full dataset validation
 Finally, we ran the full datasets(more than 1.4 million rows of data) into the Balanced Random Forest Classifier, and got the <strong>88% of recall and 86.57% of the balanced accuracy score in 1 min</strong>. 
 
+![Final_Result_1.4million](./Image/Final_Result_1.4million.png)
+
 ### Feature importances 
 The feature importance from the Balanced Random Forest Classifier shows below, which aligns with our statistical analysis using R in preliminary feature engineering. 
 
