@@ -20,5 +20,5 @@
     - Feature Importance Exploration: using Machine Learning model's built-in function ".feature_importances_" to get insights of feature importances.
 
 ## Visualization and Deployment
-In addition to using <strong>Tableau</strong> for dashboards, we are going to use <strong>JavaScript, CSS, and HTML</strong> to create an interactive function helping users get an understanding of the risk level when exposed to COVID, based on the best-performing Machine Learning Model of the project analysis. 
+In addition to using <strong>Tableau</strong> for dashboards, we are going to use <strong>Flask, HTML</strong> to create an interactive function helping users get an understanding of the risk level when exposed to COVID, based on the best-performing Machine Learning Model of the project analysis. 
 
