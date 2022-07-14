@@ -1,5 +1,5 @@
 # Technologies Used
-## Data Cleaning and Analysis
+## Data Cleaning and Statistical Analysis
 - <strong>Python, including Pandas,Matplotlib,etc. </strong> will be used to clean the data, perform an exploratory analysis and plot the data. 
 - <strong>R</strong> will be used to perform statistical analysis to figure out the significance level and p value of hypothesis attributing the features to the target result.
 
