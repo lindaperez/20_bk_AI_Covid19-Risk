@@ -38,3 +38,16 @@ To develop a machine learning model in Python to analyze what has been its impac
 * [**Google Docs File**](https://docs.google.com/document/d/1AekYwLObWoseIEC3_ZEBXurjuoKeUfaqxWNM-TKw4bk/edit?usp=sharing): designed to share resources, datasets, links, facts and ideas.
 
 * Recurring Zoom Meetings: designed to brainstorm ideas and conclusions about the project, every Wednesday at 3 p.m **PDT** based on group availability.
+
+## Technologies, languages, tools, and algorithms used throughout the project 
+Please refer to the following text file for the details
+* [**Technology Used Details**](https://github.com/lindaperez/bk-covid19/blob/main/Technology.md)
+
+## Machine Learning Analysis 
+* Data Preprocessing
+* Statistical Analysis
+* Feature Engineering
+* Machine Learning Analysis
+* Others
+<br>Please refer to the following text file for the detailed report.
+[**Machine Learning Analysis Report**](https://github.com/lindaperez/bk-covid19/blob/main/Machine_Learning_Analysis.md)
