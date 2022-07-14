@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>COVID Research</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/topmenustyle.css">
+    <style>
+        html,
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: "Raleway", sans-serif
+        }
+    </style>
+</head>
+
+<body class="w3-light-grey">
+
+    <!-- Top container -->
+
+    <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+        <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey"
+            onclick="w3_open();"><i class="fa fa-bars"></i> Menu</button>
+        <span class="w3-bar-item w3-right">Covid-19 Research</span>
+    </div>
+
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+        <div class="w3-container w3-row">
+            <div class="w3-col s4">
+                <img src="" class="w3-circle w3-margin-right" style="width:26px">
+            </div>
+        </div>
+        <hr>
+
+        <div class="w3-bar-block">
+            <a href="/dashboard" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i> Dashboard</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
+                onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i> Close Menu</a>
+            <a href="/list" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i> List of
+                Patients</a>
+
+            <a href="/register" class="w3-bar-item w3-button w3-padding"><i
+                    class="fa fa-user w3-text-blue w3-large"></i> Register a Patient </a>
+
+
+
+        </div>
+    </nav>
+
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+        title="close side menu" id="myOverlay"></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+        <!-- Header -->
+        <header class="w3-container" style="padding-top:22px">
+            <h5><b><i class="fa fa-users w3-text-yellow w3-large"></i> Patients</b></h5>
+        </header>
+
+
+        <div class="w3-container">
+            <h5>Risk Table</h5>
+            <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+                <th></th>
+                <th>Name</th>
+                <th>Age category</th>
+                <th>Gender</th>
+
+                <th>Final Class</th>
+
+                <th>Actions</th>
+                {% for pat in patients %}
+                <tr>
+                    <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
+                    <td>{{ pat.first_name +" "+ pat.last_name }}</td>
+                    <td>{{ pats[pat.id]['ageCategory'] }}</td>
+                    {% if pat.gender==1 %} <td>Female </td> {% else %} <td>Male</td> {% endif %}
+                    <td>{{ pats[pat.id].covidcl }}</td>
+
+                    <td><a href="/view/{{pat.id}}">View</a></td>
+                </tr>
+                {% endfor %}
+            </table><br>
+            <!-- <button class="w3-button w3-dark-grey"><a href="/register">Add a Patient</a> <i class="fa fa-arrow-right"></i></button> -->
+        </div>
+        <hr>
+
+      
+        <hr>
+
+
+        {% if patient %}
+
+        <div class="w3-container">
+            <h5>Patient Details:</h5>
+            <div class="w3-row">
+                <div class="w3-col m2 text-center">
+                    {% if patient.gender ==1 %}
+                    <img class="w3-circle" src="/static/images/avatar5.png" style="width:96px;height:96px">
+                    {% else: %}
+                    <img class="w3-circle" src="/static/images/avatar3.png" style="width:96px;height:96px">
+                    {% endif %}
+                </div>
+                <div class="w3-col m10 w3-container">
+                    <h4> {{patient.first_name +" "+patient.last_name}} 
+                        <span class="w3-opacity w3-medium">{{pats['date']}}</span></h4>
+                    <p>Gender:  {{ 'Female' if patient.gender==1 else 'Male' }}</p><br>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="w3-container w3-card w3-white">
+            <h4 class="w3-text-grey w3-padding-16"><i
+                    class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>
+                Risk: {{ pats[patient.id].predicted}} {{ 'Positive' if pats[patient.id].predicted[0]==1 else 'Negative' }}</h4>
+            <div class="w3-container">
+                <h5 class="w3-opacity"><b>Personal Information</b></h5>
+
+                <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+                    <tr></tr>
+                    <tr>
+
+                        <td>Age:</td>
+                        <td>{{pats[patient.id].ageValue}}</td>
+                    </tr>  
+                    <tr>
+                        <td>Age Category: <b></td>
+                        <td>{{ pats[patient.id]['ageCategory'] }}</b></td>
+                        
+                    </tr>
+                    <tr>
+                    <td>Date of Birth: <b></td> <td>{{patient.age}}<b></td>
+                    </tr>
+                    <tr>
+                        <td>Gender: <b></td> <td>{{'Female' if patient.gender==1 else 'Male'}}<b></td>
+                        </tr>
+                </table>
+                <hr>
+            </div>
+            <div class="w3-container">
+                <h5 class="w3-opacity"><b>Underlying Conditions</b></h5>
+                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{pats[patient.id].covidcl
+                    }}</h6>
+                <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+                    <tr></tr>
+                    <tr>
+                        <td>
+
+                            <label> Pneumonia </label> <br>
+                            <label>Diabetes: </label><br>
+                            <label>Obesity: </label><br>
+                            <label>Hypertension: </label><br>
+                            <label>Immunosuppressant: </label><br>
+                            {% if patient.gender==1 %}
+                            <label id="labelPregnant">Pregnant: </label><br>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <label> {{ 'Positive' if patient.pneumonia==1 else 'Negative' }} </label><br>
+                            <label> {{ 'Positive' if patient.diabetes==1 else 'Negative' }} </label><br>
+                            <label> {{ 'Positive' if patient.obesity==1 else 'Negative' }} </label><br>
+                            <label> {{ 'Positive' if patient.hypertension==1 else 'Negative' }} </label><br>
+                            <label> {{ 'Positive' if patient.immunosup==1 else 'Negative' }} </label><br>
+                            {% if patient.gender==1 %}
+                            <label id="labelPregnant2"> {{ 'Positive' if patient.pregnant==1 else 'Negative' }} </label><br>
+                            {% endif %}
+
+                        </td>
+
+                        <td>
+                      
+                            <label>Asthma: </label><br>
+                            <label>Cardiovascular: </label><br>
+                            <label> COPD </label> <br>
+                            <label>Renal Chronic: </label><br>
+                            <label>Tobacco: </label><br>
+                            <label>Other Complication: </label><br>
+
+
+                        </td>
+                        <td>
+                 
+                            <label> {{ 'Positive' if patient.asthma==1 else 'Negative' }} </label><br>
+                            <label> {{ 'Positive' if patient.cardiovascular==1 else 'Negative' }} </label><br>
+                            <label> {{ 'Positive' if patient.copd==1 else 'Negative' }} </label><br>
+                            <label> {{ 'Positive' if patient.renal_chronic==1 else 'Negative' }} </label><br>
+                            <label> {{ 'Positive' if patient.tobacco==1 else 'Negative' }} </label><br>
+                            <label> {{ 'Positive' if patient.another_complication==1 else 'Negative' }} </label><br>
+
+     
+
+                        </td>
+                    </tr>
+                </table>
+                <hr>
+            </div>
+            <div class="w3-container">
+                <h5 class="w3-opacity"><b>Other details</b></h5>
+
+                <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+                    <tr></tr>
+                    <tr>
+                        <td>
+
+                            <label>Closed Contact: </label><br>
+
+                        </td>
+                        <td>
+                      
+                            <label> {{ 'Positive' if patient.closed_contanct==1 else 'Negative' }} </label><br>
+
+
+                        </td>
+                        </tr>
+
+                </table>
+                <hr>
+            </div>
+        </div>
+        {% endif %}
+        <br>
+        <br>
+
+
+
+        <!-- End page content -->
+    </div>
+
+    <script src="../static/js/sidebar.js"></script>
+
+</body>
+
+</html>
+
+
+
