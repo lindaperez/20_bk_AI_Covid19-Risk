@@ -13,7 +13,7 @@ Amazon Relational Database Service (RDS) is a managed SQL database service provi
 The decision of creating a Relational database was based on the sources found, 
 
 1. Free-Tier AWS:  the cost of processing and storing is free for most of the requirements. 
-2. Team developers: have a better understanding of relational databases which will not be going to incur additional time for learning.
+2. Team developers: have a better understanding of relational databases that won't take any additional time for learning.
 3. The expected operation over the database is mainly read.
 
 ## ERD - SCHEMA
