@@ -44,10 +44,12 @@ Please refer to the following text file for the details
 * [**Technology Used Details**](https://github.com/lindaperez/bk-covid19/blob/main/Technology.md)
 
 ## Machine Learning Analysis 
+<br>Please refer to the following text file for the detailed report.
+<br>[**Machine Learning Analysis Report**](https://github.com/lindaperez/bk-covid19/blob/main/Machine_Learning_Analysis.md)
+The report covers:
 * Data Preprocessing
 * Statistical Analysis
 * Feature Engineering
 * Machine Learning Analysis
 * Others
-<br>Please refer to the following text file for the detailed report.
-[**Machine Learning Analysis Report**](https://github.com/lindaperez/bk-covid19/blob/main/Machine_Learning_Analysis.md)
+
