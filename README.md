@@ -1,8 +1,8 @@
 # Heroku Covid 19 Web application
 
 
-Current Deployment: https://lperez-covid-deployment.herokuapp.com/register
-
+- Current Deployment: https://lperez-covid-deployment.herokuapp.com/register
+- How to Deploy? https://github.com/lindaperez/bk-covid19/blob/lperez_deployment/Deployment.md
 
 ## Use Cases:
 
