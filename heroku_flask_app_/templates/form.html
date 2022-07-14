@@ -1,85 +1,299 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
+    <title>COVID Research</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pet Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/topmenustyle.css">
+    <style>
+        html,
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: "Raleway", sans-serif
+        }
+    </style>
+</head>
 
-    <!-- <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script> -->
-    <!-- Latest compiled and minified CSS -->
-    <!-- -- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" -->
-        <!-- crossorigin="anonymous"> -->
+<body class="w3-light-grey">
 
-    <!-- Optional theme -->
-    <!-- -- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" -->
-        <!-- crossorigin="anonymous"> -->
+    <!-- Top container -->
+    <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+        <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey"
+            onclick="w3_open();"><i class="fa fa-bars"></i> Menu</button>
+        <span class="w3-bar-item w3-right">Covid-19 Research</span>
+    </div>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" -->
-        <!-- crossorigin="anonymous"></script> -->
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
-
-    <body>
-        <div class="container">
-            <div class="jumbotron" style="text-align: center">
-                <h1>Patient Form</h1>
-                <p>Enter the following values</p>
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+        <div class="w3-container w3-row">
+            <div class="w3-col s4">
+                <img src="" class="w3-circle w3-margin-right" style="width:26px">
             </div>
-            <div class="row">
-                <div class="col-md-offset-2 col-md-8">
-                    <form method="POST" action="/register" role="form" , name="petform">
-                        <div class="form-group">
-                            <label for="inputFirstName">Patient Name</label>
-                            <input type="text" class="form-control" id="inputFirstName" name="patientFirstName" placeholder="First Name">
-                            <label for="inputFirstName">Patient Last Name</label>
-                            <input type="text" class="form-control" id="inputLastName" name="patientLastName" placeholder="Last Name">
-                            <select name="pets" id="pet-select">
-                                <option value="">--Please choose an option--</option>
-                                <option value="dog">Female</option>
-                                <option value="cat">Male</option>
-                            </select>
-                            <input type="text" class="form-control" id="inputAge" name="patientAge" placeholder="Age">
-                            <input type="checkbox" id="inputIntubated" name="patientIntubated" >
-                            <label for="inputIntubated"> Intubated </label><br>
-                            <input type="checkbox" id="inputPneumonia" name="patientPneumonia" value="0">
-                            <label for="inputPneumonia"> Pneumonia </label><br>
-                            <input type="checkbox" id="inputDiabetes" name="patientDiabetes" value="0">
-                            <label for="inputDiabetes"> Diabetes </label><br>
-                            <input type="checkbox" id="inputAsthma" name="patientAsthma" value="0">
-                            <label for="inputAsthma"> Asthma </label><br>
-                            <input type="checkbox" id="inputImmunosup" name="patientImmunosup" value="0">
-                            <label for="inputImmunosup"> Immunosup </label><br>
-                            <input type="checkbox" id="inputHypertension" name="patientHypertension" value="0">
-                            <label for="inputHypertension"> Hypertension </label><br>
-                            <input type="checkbox" id="inputCardiovascular" name="patientCardiovascular" value="0">
-                            <label for="inputCardiovascular"> Cardiovascular </label><br>
-                            <input type="checkbox" id="inputObesity" name="patientObesity" value="0">
-                            <label for="inputObesity"> Obesity </label><br>
-                            <input type="checkbox" id="inputRenalChronic" name="patientRenalChronic" value="0">
-                            <label for="inputRenalChronic"> Renal Chronic </label><br>
-                            <input type="checkbox" id="inputTobacco" name="patientTobacco" value="0">
-                            <label for="inputTobacco"> Tobacco </label><br>
-                            <input type="checkbox" id="inputClosedContanct" name="patientClosedContanct" value="0">
-                            <label for="inputClosedContanct"> Closed Contanct </label><br>
-                            <input type="checkbox" id="inputICU" name="patientICU" value="0">
-                            <label for="inputICU"> ICU </label><br>
-                       
-                        </div>
+
+        </div>
+        <hr>
+
+        <div class="w3-bar-block">
+            <a href="/dashboard" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i> Dashboard</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
+                onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i> Close Menu</a>
+            <a href="/list" class="w3-bar-item w3-button w3-padding ">
+                <i class="fa fa-users fa-fw"></i> List of Patients</a>
+
+            <a href="/register" class="w3-bar-item w3-button w3-padding w3-blue"><i
+                    class="fa fa-user w3-text-blue w3-large"></i> Register a Patient </a>
+
+
+
+        </div>
+    </nav>
+
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+        title="close side menu" id="myOverlay"></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+        <!-- Header -->
+        <header class="w3-container" style="padding-top:22px">
+            <h5><b><i class="fa fa-user w3-text-blue w3-large"></i> Registration</b></h5>
+        </header>
+
+        <div class="w3-container">
+
+            <div>
+
+                <table class="w3-table w3-striped w3-bordered w3-border w3-white">
+                    <h5>Please introduce the patient's profile:</h5>
+                    <form method="POST" action="/register" role="form" , name="registerform"  onsubmit="return validateForm()" >
+                        <tr>
+                            <td>
+                                <label for="inputGender"> First Name: </label>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="inputFirstName" name="patientFirstName">
+                            </td>
+                            <td>
+                                <label for="inputLastName"> Last Name: </label>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="inputLastName" name="patientLastName">
+                            </td>
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="inputGender"> Gender: </label>
+                            </td>
+                            <td>
+                                <select name="patientGender" id="selectGender" <br>
+                                    <option value="-1">select the option</option>
+                                    <option value="1">Female</option>
+                                    <option value="0">Male</option>
+                                </select>
+                            </td>
+                            <td>
+                                <label style="" for="inputPregnant" id="labelPregnant"> Pregnant </label>
+                            </td>
+                            <td>
+                                <input style="" type="checkbox" id="inputPregnant" name="patientPregnant" value="0">
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="inputAge"> Birth date: </label>
+                            </td>
+                            <td>
+                                <input class="form-control" type="date" id="inputAge" name="patientAge"
+                                    placeholder="Birth date" value="1899-09-09" min="1910-01-01" ><br>
+                            </td>
+                            <td>
+                                <label for="inputCovidcl"> Covid-19</label>
+                            </td>
+                            <td>
+                                <select disabled name="patientCovidcl" id="selectCovidcl">
+                                    <option value="">select the option:</option>
+                                    <option value="1">COVID-19 CONFIRMED BY EPIDEMIOLOGICAL CLINICAL ASSOCIATION
+                                    </option>
+                                    <option  selected value="2">COVID-19 CONFIRMED BY JUDGMENT COMMITTEE</option>
+                                    <option value="3">SARS-COV-2 CASE CONFIRMED</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label> Medical conditions:</label><br><br>
+                                <label for="inputPneumonia"> Pneumonia </label><br>
+                                <label for="inputDiabetes"> Diabetes </label><br>
+                                <label for="inputObesity"> Obesity </label><br>
+                                <label for="inputHypertension"> Hypertension </label><br>
+                                <label for="inputImmunosup"> Immunosup </label><br>
+                                <!-- <input type="checkbox" id="inputIntubated" name="patientIntubated">
+                                                            <label for="inputIntubated"> Intubated </label><br> -->
+                               
+                            </td>
+                            <td><br><br>
+                                <input type="checkbox" id="inputPneumonia" name="patientPneumonia" value="0"><br>
+                            
+                                <input type="checkbox" id="inputDiabetes" name="patientDiabetes" value="0"><br>
+                            
+                                <input type="checkbox" id="inputObesity" name="patientObesity" value="0"><br>
+
+                                <input type="checkbox" id="inputHypertension" name="patientHypertension" value="0"><br>
+                            
+                                <input type="checkbox" id="inputImmunosup" name="patientImmunosup" value="0"><br>
+                            
+                            </td>
+                           
+                            <td><br><br>
+                                <label for="inputAsthma"> Asthma </label><br>
+                                <label for="inputCardiovascular"> Cardiovascular </label><br>
+                                <label for="inputCopd"> COPD </label><br>
+                                <label for="inputRenalChronic"> Renal Chronic </label><br>
+                                <label for="inputTobacco"> Tobacco </label><br>
+                                <label for="inputAnother"> Other Complication</label><br><br>
+                                <!-- <input type="checkbox" id="inputICU" name="patientICU" value="0">
+                                <label for="inputICU"> ICU </label><br> -->
+                            </td>
+                            <td><br><br>
+                                <input type="checkbox" id="inputAsthma" name="patientAsthma" value="0"><br>
+                               
+                                <input type="checkbox" id="inputCardiovascular" name="patientCardiovascular" value="0"><br>
+                                
+                                <input type="checkbox" id="inputCopd" name="patientCopd" value="0"><br>
+                               
+                                <input type="checkbox" id="inputRenalChronic" name="patientRenalChronic" value="0"><br>
+                                
+                                <input type="checkbox" id="inputTobacco" name="patientTobacco" value="0"><br>
+                              
+                                <input type="checkbox" id="inputAnother" name="patientAnother" value="0"><br>
+                                
+                            
+                            </td>
+                         
+                        </tr>
+                        <tr>
+                            <td>
+                                <label> Other details:</label><br><br>
+                           
+                                <input type="checkbox" id="inputClosedContact" name="patientClosedContact" value="0">
+                           
+                                <label for="inputClosedContact"> Closed Contact</label><br>
+                            </td>
+
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                     
-                        <input type="submit" value="submit" class="btn btn-default">
-               
+                            <td> <button value="submit" class=" w3-button w3-dark-grey">Submit </button>
+
+                            </td>
+                        </tr>
+
                     </form>
-                    
-                
-                </div>
+                </table>
+
+
             </div>
-        
+
+
+
+
+
         </div>
 
-    </body>
+        <!-- End page content -->
+    </div>
+
+    <script src="../static/js/sidebar.js"></script>
+
+</body>
 
 </html>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+
+<script>
+var tbody = d3.select("tbody");
+
+function updatePregnancy() {
+    var sel = document.getElementById('selectGender');
+    value = sel.options[sel.selectedIndex].value;
+
+    if (value == '0' && value != null && value != undefined) {
+        d3.select('#inputPregnant').property('style', "display:none")
+        d3.select('#labelPregnant').property('style', "display:none")
+    }
+    if (value == '1' || value == 1) {
+        console.log(sel.options[sel.selectedIndex].value)
+        d3.select('#inputPregnant').property('style', "display:on")
+        d3.select('#labelPregnant').property('style', "display:on")
+    }
+
+}
+
+d3.select("#selectGender").on('change', updatePregnancy);
+</script>
+
+<style>
+#selectGender {
+        width: 165px;
+
+    }
+#selectCovidcl{
+    width: 165px;
+}
+#inputAge{
+    width: 165px;
+}
+</style>
+
+
+<script>
+function validateForm() {
+    let patientFirstName = document.forms["registerform"]["patientFirstName"].value;
+    let patientLastName = document.forms["registerform"]["patientLastName"].value;
+    let birthdate = document.forms["registerform"]["patientAge"].value;
+    let gender = document.forms["registerform"]["patientGender"].value;
+    if (patientFirstName.trim() == "") {
+        alert("Patient's first name should no be empty");
+        return false;
+    }
+    if (patientLastName.trim() == "") {
+        alert("Patient's last name should no be empty");
+        return false;
+    }
+    if (birthdate.trim() == "1899-09-09") {
+        alert("Patient's birth date should no be empty");
+        return false;
+    }
+    if (birthdate.trim().length != 10) {
+        alert("Patient's birth date has a wrong format");
+        return false;
+    }
+    if (gender.trim() == -1) {
+        alert("Patient's gender should no be empty");
+        return false;
+    }
+    
+
+} 
+
+    </script>
