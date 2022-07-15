@@ -44,7 +44,7 @@ To develop a machine learning model in Python to analyze what has been its impac
 ## Technologies, languages, tools, and algorithms used throughout the project 
 Please refer to the following text file for the details
 * [**Technology Used Details**](https://github.com/lindaperez/bk-covid19/blob/main/Technology.md)
-* [**Requirements.txt](https://github.com/lindaperez/bk-covid19/blob/main/Requirements.txt)
+* [**Requirements.txt**](https://github.com/lindaperez/bk-covid19/blob/main/Requirements.txt)
 
 ## Machine Learning Analysis 
 <br>Please refer to the following text file for the details.
