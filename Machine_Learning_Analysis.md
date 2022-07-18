@@ -129,7 +129,7 @@ The SHAP plot shows features that contribute to pushing the output from the base
 
 This other patient is also in the senior age group and has obesity. the model classified him in the low risk group. His age was pushing him to the high risk group but because he doesn't suffer from Pneumonia he survived. 
 
-![Picture2](https://user-images.githubusercontent.com/66279829/179442226-9cca940a-931c-4a45-96ad-8de529c3cffb.png)
+![Picture3](https://user-images.githubusercontent.com/66279829/179442777-1dd12a1b-4083-4e74-bbd4-a623671a9ebb.png)
 
 Based on the SHAP waterfall plot, we can say that Pneumonia is the most important feature in the model, which has more than 30% of the model's explainability. Also, these top 10 features provide more than 100% of the model's interpretation.
 
