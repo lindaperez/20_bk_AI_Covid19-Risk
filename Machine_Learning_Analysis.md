@@ -117,6 +117,14 @@ Furthermore, we increased the sample data to 50,000 rows, and used StratifiedKFo
 
 <br> From the result and analysis above, We can tell Balanced Random Forest, Gradient Boosting and Random forest has the best recall score and decent balanced accuracy score across both SMOTE and Undersampling approaches. 
 
+### Model Interpretation
+
+<br> To understand how the model works we used the SHAP library in Python. SHAP helps us interpret machine learning models with Shapely values. Shap values are measures of contributions each predictor (feature) has in a machine learning model. Generating explanations for a single prediction below.
+
+![Picture1](https://user-images.githubusercontent.com/66279829/179441950-1e496626-5d25-4d35-990c-9450fd646354.png)
+
+The SHAP plot shows features that contribute to pushing the output from the base value (average model output) to the actual predicted value. Choosen instance refers to a senior patient. This patient suffers from pneumonia and he died from covid. The model predicted his death and we can clearely see that Pneumonia and age played the bigger factor in the prediction of his class. 
+
 ### Other experiments 
 
 <br> We also looked into the deep learning, and built the model with 2 hidden layers, and relu activation function. Comparing SMOTE and Undersampling techniques, we tested 50,000 rows of sample data and calculated accuracy score, TruePostivies, FalseNegatives and Recall.  
