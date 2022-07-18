@@ -119,11 +119,16 @@ Furthermore, we increased the sample data to 50,000 rows, and used StratifiedKFo
 
 ### Model Interpretation
 
-<br> To understand how the model works we used the SHAP library in Python. SHAP helps us interpret machine learning models with Shapely values. Shap values are measures of contributions each predictor (feature) has in a machine learning model. Generating explanations for a single prediction below.
+To understand how the model works we used the SHAP library in Python. SHAP helps us interpret machine learning models with Shapely values. Shap values are measures of contributions each predictor (feature) has in a machine learning model. Generating explanations for a single prediction below.
 
 ![Picture1](https://user-images.githubusercontent.com/66279829/179441950-1e496626-5d25-4d35-990c-9450fd646354.png)
 
-The SHAP plot shows features that contribute to pushing the output from the base value (average model output) to the actual predicted value. Choosen instance refers to a senior patient. This patient suffers from pneumonia and he died from covid. The model predicted his death and we can clearely see that Pneumonia and age played the bigger factor in the prediction of his class. 
+The SHAP plot shows features that contribute to pushing the output from the base value (average model output) to the actual predicted value. Choosen instance refers to a senior patient. This patient suffers from pneumonia and has diabetes. The model predicted his death and we can clearely see that Pneumonia and age played the bigger factor in the prediction of his class. 
+
+![Picture2](https://user-images.githubusercontent.com/66279829/179442226-9cca940a-931c-4a45-96ad-8de529c3cffb.png)
+
+This other patient is also in the senior age group and has obesity. the model classified him in the low risk group. His age was pushing him to the high risk group but because he doesn't suffer from Pneumonia he survived. 
+
 
 ### Other experiments 
 
